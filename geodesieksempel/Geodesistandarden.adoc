@@ -1,0 +1,273 @@
+//:standardtype: SOSI Generell Del
+//:standardtype: SOSI Generell Objektkatalog
+:standardtype:
+:standardtittel: Geodetisk grunnlag +
+– koordinatbaserte referansesystemer og kvalitetssikring av grunnlagspunkt
+// Sett inn navnet på standarden
+:standardtittelURL: Geodetisk_grunnlag_-_koordinatbaserte_referansesystemer_og_kvalitetssikring_av_grunnlagspunkt
+// Sett inn navnet på standarden med "_" i stedet for mellomrom
+:standardversjon: 1.0
+// Sett inn riktig versjonsnummer
+:erstattetversjon: 0
+// Sett inn versjonsnummer til forrige versjon av standarden.  La "erstattetversjon" være 0 dersom det ikke er noen tidligere versjoner av standarden.
+:publikasjonsdato: 20åå-mm-dd
+// Sett inn publikasjonsdato
+:standardfulltittel: {standardtittel} {standardversjon}
+//:dokumentnivå: UTKAST
+//:dokumentnivå: HØRING
+//:dokumentnivå: TILGODKJENNING
+:dokumentnivå: GODKJENT
+//:dokumentnivå: ERSTATTET
+//:dokumentnivå: TILBAKETRUKKET
+//Sett riktig dokumentnivå.  GODKJENT skal bare benyttes når standarden er godkjent i standardiseringskomiteen for geomatikk.
+
+//= {standardtype}: {standardfulltittel}
+= {standardtype} {standardfulltittel}
+:encoding: utf-8
+:lang: nb
+:doctype: book
+:pdf-page-size: A4
+:title-page-background-image: image:images/forsidebilde_kartverketstandarder.jpg[]
+:toc: left
+ifdef::backend-pdf[:toc: macro]
+:toc-title: Innhold
+:toclevels: 4
+:sectnums:
+:sectnumlevels: 4
+:numbered:
+:!chapter-signifier: 
+:appendix-caption: Vedlegg
+:figure-caption: Figur
+:table-caption: Tabell
+:section-refsig: Kapittel
+:version-label: Versjon
+:icons: font
+:stem: latexmath
+:eqnums:
+//:important-caption: MERK
+//:warning-caption: MERK
+ifeval::["{dokumentnivå}" == "HØRING"]
+:page-background-image: image:images/høringsversjon.png[]
+endif::[]
+// kode for å velge TEST eller PUB skjemaserver.
+ifeval::["{dokumentnivå}" == "UTKAST"]
+:skjemaserver: TEST
+endif::[]
+ifeval::["{dokumentnivå}" == "HØRING"]
+:skjemaserver: TEST
+endif::[]
+ifeval::["{dokumentnivå}" == "TILGODKJENNING"]
+:skjemaserver: TEST
+endif::[]
+ifeval::["{dokumentnivå}" == "GODKJENT"]
+:skjemaserver: PUB
+endif::[]
+ifeval::["{dokumentnivå}" == "ERSTATTET"]
+:skjemaserver: PUB
+endif::[]
+ifeval::["{dokumentnivå}" == "TILBAKETRUKKET"]
+:skjemaserver: PUB
+endif::[]
+
+//URLer og filnavn.  Forandre verdiene til de som gjelder for denne standarden
+:standardurl: https://sosi.geonorge.no/standarder/{standardtittelURL}
+:umlurl: https://sosi.geonorge.no/standarder/{standardtittelURL}/{standardversjon}/modell.html
+:pdffilnavn: filnavn.pdf
+
+ifeval::["{skjemaserver}" == "TEST"]
+//url til testversjoner for skjemaer basert på denne standarden. Sett inn riktig URL
+//dersom det ikke er skjemaer basert på denne standarden, kan dette fjernes
+:gmlskjema: https://skjema.geonorge.no/url_til_test_gml-skjema
+:schematronskjema: https://skjema.geonorge.no/url_til_test_schematron
+:rdfskjema: https://skjema.geonorge.no/url_til_test_rdf-skjema
+endif::[]
+
+ifeval::["{skjemaserver}" == "PUB"]
+//url til endelig versjon av skjemaer basert på denne standarden. Sett inn riktig URL
+//dersom det ikke er skjemaer basert på denne standarden, kan dette fjernes
+:gmlskjema: https://skjema.geonorge.no/url_til_gml-skjema
+:schematronskjema: https://skjema.geonorge.no/url_til_schematron
+:rdfskjema: https://skjema.geonorge.no/url_til_rdf-skjema
+endif::[]
+
+ifeval::["{dokumentnivå}" == "HØRING"]
+IMPORTANT: Dette er høringsversjonen til {standardtittel} {standardversjon}.  Standarden er ikke vedtatt.
+endif::[]
+ifeval::["{dokumentnivå}" == "ERSTATTET"]
+WARNING: Denne versjonen av standarden er erstattet av en nyere versjon.
+endif::[]
+ifeval::["{dokumentnivå}" == "TILBAKETRUKKET"]
+WARNING: Denne standarden er trukket tilbake og er ikke lenger anbefalt i bruk.
+endif::[]
+
+****
+
+*Publisert:* 2024-01-26 +
+
+
+*Denne versjonen finnes på:* link:{standardurl}/{standardversjon}[] +
+
+//*Dette dokumentet kan også lastes ned //link:{standardurl}/{standardversjon}/{pdffilnavn}[som PDF]* +
+
+*Nyeste versjon finnes på:* link:{standardurl}[] +
+ifeval::[{erstattetversjon} != 0]
+*Denne versjonen erstatter:* link:{standardurl}/{erstattetversjon}[] +
+endif::[]
+
+//*Dokumenttype:* {standardtype} +
+//*link:{umlurl}[HTML-visning av UML-modell]* +
+
+ifeval::["{dokumentnivå}" == "UTKAST"]
+Utkast - ikke vedtatt standard
+endif::[]
+ifeval::["{dokumentnivå}" == "HØRING"]
+Høringsversjon - ikke vedtatt standard
+endif::[]
+ifeval::["{dokumentnivå}" == "TILGODKJENNING"]
+Til godkjenning i Standardiseringskomiteen for geomatikk - ikke vedtatt standard
+endif::[]
+ifeval::["{dokumentnivå}" == "GODKJENT"]
+Vedtatt som standard av standardiseringskomiteen for geomatikk
+endif::[]
+ifeval::["{dokumentnivå}" == "ERSTATTET"]
+Denne versjonen av standarden er erstattet av en nyere versjon.
+endif::[]
+ifeval::["{dokumentnivå}" == "TILBAKETRUKKET"]
+Denne standarden er trukket tilbake.
+endif::[]
+
+****
+//// 
+LISENSVILKÅR
+////
+
+[discrete]
+==== Lisens
+
+//// 
+LISENSVILKÅR:  Dersom det er en standardisert produktspesifikasjon gitt ut under SOSI, skal lisensen oppgitt i Lisensvilkår.adoc.  For andre produktspesifikasjoner kan andre lisensvilkår gjelde.
+////
+
+
+include::Lisensvilkår.adoc[]
+
+////
+SLUTT Lisensvilkår 
+////
+
+//ifdef::backend-pdf[toc::[]]
+[toc::[]
+
+== Orientering og introduksjon
+// Kort om hva denne standarden går ut på
+Denne standarden omhandler koordinatbaserte referansesystemer og hvordan en kan kvalitetsikre grunnlagspunkter som bestemmes i slike referansesystemer. +
+
+Vår nasjonale referansramme, EUREF89, sees i en større sammenheng, sammen med globale referanserammer. +
+
+Det defineres hvordan grunnlagspunktene, som gjør et referansesystem tilgjengelig, skal analyseres for å sikre troverdige uttrykk for nøyaktigheten. +
+
+Det redegjøres for sentrale begrep for å skape en felles språkbruk i fagmiljøet. +
+
+== Historikk og status
+I løpet av 1990-tallet utarbeidet Kartverket sammen med sentrale aktører i geodesimiljøet i Norge en rekke standarder innenfor kart, oppmåling og geodesi. Standardene er i noen grad revidert siden den gang, men i 2020 ble det satt i gang et større arbeid med fullstendig gjennomgang av form, struktur og innhold av standardene:
+
+* Koordinatbaserte referansesystemer, versjon 2.1 (2009)
+* Norges offisielle høydesystemer og referansenivåer, versjon 2.1 (2009)
+* Grunnlagsnett, versjon 1.1 (2009)
+* Fastmerkenummerering og fastmerkeregister, versjon 2.2 (2009)
+* Satellittbasert posisjonsbestemmelse, versjon 2.1 (2009)
+
+Arbeidsgruppen ble gitt oppdraget å vurdere struktur for en eller flere nye standarder, vurdere innhold i henhold til internasjonale standarder, og skille ut veiledningsmateriell. 
+
+Arbeidsgruppen kom fram til at de nevnte standardene  delvis overlapper eksisterende internasjonale standarder og således strider mot Kartverkets retningslinjer om at nasjonale bransjestandarder innen geografisk informasjon/geomatikk kun utarbeides der internasjonale standarder ikke finnes.
+
+Standarden Fastmerkenummerering og fastmerkeregister 2.2:2009 trekkes tilbake fordi den i liten grad har vært i bruk, og det blir trolig mindre bruk av permanente fastmerkenett fremover. 
+
+Standardene Norges offisielle høydesystemer og referansenivåer 2.1:2009 og Satellittbasert posisjonsbestemmelse 2.1:2009 er til dels utdaterte, og omhandler i stor grad informasjon som i dag finnes andre steder, f.eks. i lærebøker. Standardene trekkes derfor tilbake, men enkelte deler vil bli oppdatert og videreført i en planlagt veileder. 
+
+Relevant innhold fra Grunnlagsnett 1.1 (2009) og Koordinatbaserte referansesystemer 2.1 (2009) er lagt til grunn for utarbeidelsen av denne standarden og følger opp revisjoner av internasjonale standarder (som også er norske standarder), med fokus på <<ISO-19111:2020>> "Geografisk informasjon – Referanseangivelse med koordinater". Vår standard har ikke til hensikt å gjengi ISO standarden med sine krav, men gir en overordnet beskrivelse med ytterligere krav som er av betydning for norske brukere.
+
+
+== Omfang 
+Standarden beskriver metoder for kvalitetssikring av grunnlagspunkt til oppmåling og kartlegging i en definert geodetiske referanseramme. 
+
+Standarden inneholder også en overordnet beskrivelse av koordinatbaserte referansesystemer benyttet i Norge, med henvisning til ISO 19111. Dette gjøres for å sikre bruken av norske begreper innenfor området.
+
+Teksten er utarbeidet fra standarden "_Grunnlagsnett_" og deler av standarden "_Koordinatbaserte referansesystemer_. Metodikken fra "Grunnlagsnett" er beholdt, men teksten er utvidet med eksempler og matematisk dokumentasjon. Utdaterte detaljer vedrørende vedlikehold av et grunnlagsnett er fjernet. +
+
+===	Målsetting
+Sikre uniform bruk og forståelse av geodetiske begreper i fagområdene som dekkes av standarden. Beskrive standard metode for beregning av geodetiske grunnlagspunkt eller grunnlagsnett. 
+
+===	Bruksområde
+Profesjonelle brukere av geografisk informasjon, landmålere, beregnere av grunnlagspunkt på Norges fastland samt Svalbard.
+
+// Liste over normative referanser.
+== Normative referanser
+[bibliography]
+* [[[EU-KOM]]] Kommisjonsforordning (EU) nr. 1089/2010 av 23. november 2010 om gjennomføring av europaparlamentets- og rådsdirektiv 2007/2/EF med hensyn til samvirkningsevne til geodatasett og tjenester, Vedlegg II , se https://www.regjeringen.no/contentassets/f5b65fe14a6e4cf8a190e2f9983a0dab/32010r1089_interoperabilitet_no.pdf[32010r1089.pdf (lovdata.no)] +
+
+* [[[EU-INSPIRE]]] D2.8.I.1 Data Specification on Coordinate Reference Systems – Technical Guidelines, se https://inspire.ec.europa.eu/file/1726/download?token=3OGur2Ln +
+
+* [[[ISO-19111:2020]]] NS-EN ISO 19111:2020 "Geografisk informasjon – Referanseangivelse med koordinater" (ISO 19111:2019), se https://online.standard.no/ns-en-iso-19111-2020[NS-EN ISO 19111:2020 (standard.no)] +
+
+* [[[ISO-19111-tillegg]]] NS-EN ISO 19111:2020/A1:2021 Endring - Geografisk informasjon – Referanseangivelse med koordinater- Endring 1 (ISO 19111:2019/AMD1:2021, se https://online.standard.no/ns-en-iso-19111-2020a1-2021[NS-EN ISO 19111:2020/A1:2021 (standard.no)] +
+
+
+== Konformitetsklasser
+
+include::konformitet.adoc[]
+//{gmlskjema}
+
+// Det over er eksempler - bytt ut med de normative referansene som faktisk er i bruk.
+
+// Dersom standarden er uten normative referanser, oppgi
+// Denne standarden har ingen normative referanser
+
+
+
+== Definisjoner og forkortelser
+Når dekkende definisjoner allerede finnes i Kartverkets standarder for geogfrafisk informasjon, er de benyttet med en henvisning til kilden. Hvis kilde ikke er oppgitt, er definisjonen utarbeidet i arbeidet med denne standarden.
+
+=== Definisjoner
+// Liste over begreper - termer med definisjoner brukt i standarden. Dersom termene er hentet fra andre standarddokumenter, skal kilde oppgis
+include::termer.adoc[]
+
+//=== Forkortelser
+// Forkortelser brukt i standarden
+
+// Følgende kapittel tar utgangspunkt i at det er en fagområdestandard/informasjonsmodell for fagområde. Standarder som ikke er fagområdestandarder kan ha annen kapittelinndeling
+== Referanserammer og koordinatsystem
+include::Koordinatsystem.adoc[]
+
+== Kvalitetsikring av grunnlagspunkt
+include::Grunnlagsnett.adoc[]
+
+// Følgende kapittel tar utgangspunkt i at det er laget en egen ontologi knyttet til standardens innhold. Standarder som ikke inneholder ontologi kan ha annen kapittelinndeling
+[bibliography]
+== Bibliografi
+* [[[NN2000]]] The Norwegian vertical referanseframe NN2000. Report no. 19-04811-4, ISBN:978-82-7945-247-8
+ 
+* [[[Ref_Trans]]] Referanserammer og transformasjoner i Norge. Rapport nr.: 19-04811-18, ISBN: 978-82-7945-476-2 
+
+// Følgende kapittel tar utgangspunkt i at det er en fagområdestandard/informasjonsmodell for fagområde. Standarder som ikke er fagområdestandarder kan ha annen kapittelinndeling
+//== Applikasjonsskjema
+
+//include::modell.adoc[leveloffset=1,lines=2..-1]
+
+
+[appendix]
+== (Normativt)
+include::konformitetstester.adoc[]
+
+[appendix]
+== (Informativt)
+include::palitelighetsanlyse.adoc[]
+[appendix]
+== (Informativt)
+include::Regneeksempel.adoc[]
+[appendix]
+== (Informativt)
+include::formel_utledning.adoc[]
+[appendix]
+== (Informativt)
+include::rapportmal.adoc[]

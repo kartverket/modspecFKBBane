@@ -1,0 +1,505 @@
+:stem: latexmath  
+:eqnums:
+
+=== Kvalitetskontroll ved minste kvadraters metode
+:reproducible:
+
+_Innholdet i dette vedlegget er forfattet av Jon Glenn Gjevestad (med bidrag fra Olav Vestøl i kapittel B.1.6)._
+
+
+Det er i teorien for minste kvadraters metode (MKM) vanlig å anta at observasjonsfeilene er tilfeldige og normalfordelte. Dersom dette er tilfellet, vil MKM-estimatoren gi optimal løsning i form av minimum feilkvadratsum.
+
+Men dersom det skulle vise seg å være en grovfeil blant observasjonene, vil MKM mer eller mindre fordele denne grovfeilen på alle restfeilene. Dette gjør at grovfeilen blir svært vanskelig å detektere, samt at forutsetningen om at observasjonsfeilene er normalfordelte ikke lenger er gyldig.
+
+Det er derfor utviklet metoder som kan detektere og identifisere grove feil i observasjonsmaterialet før man gjør en utjevningsberegning. Noen slike metoder er f.eks:
+
+
+* Datasnooping (Baarda)
+* Tau-t
+* Multippel t-test
+
+
+Av disse metodene er det Multippel t-test som i dette notatet er valgt som basis for kvalitetskontroll av observasjoner.
+
+Kvalitetskontroll av observasjoner foregår normalt i tre trinn:
+
+
+* Deteksjon (Test av feilkvadratsum)
+* Identifikasjon (Multippel t-test)
+* Adapsjon (Observasjon med størst t-verdi fjernes fra systemet)
+
+Selv om påviselige grovfeil er fjernet fra observasjonsmaterialet, er det oftest likevel feil igjen i materialet fordi det kreves en viss grad av statistisk sikkerhet for å skille grove feil fra tilfeldig variasjon. Slike gjenværende feil påvirker resultatet, og i en pålitelighetsanalyse undersøkes dette og resultatet kan uttrykkes som kvalitetsmål. 
+
+==== Test av feilkvadratsum
+Denne testen er en av flere såkalte globaltester som behandler hele systemet under ett. Denne testen vil gi en indikasjon på om det er tvang i systemet og brukes ofte for _deteksjon_ av grovfeil.
+
+Hypotesene for test av feilkvadratsum er:
+
+
+* stem:[H_{0}: \sigma^2 = \sigma_{0}^2]
+* stem:[H_{1}: \sigma^2 \neq \sigma_{0}^2]
+
+
+, der stem:[\sigma_{0}] er a priori standardavvik på vektsenheten og stem:[\sigma] er a posteriori standardavvik på vektsenheten.
+
+Teststørrelsen i dette tilfellet er:
+[stem,TestVerdi=formel 1]
+++++
+\begin{equation} \label{eq:Globaltest}
+  z=\frac{v^{T}Wv}{\sigma_{0}^2}=\frac{\hat{s}_{0}^2}{\sigma_{0}^2}(n-e)\sim\chi_{(n-e)}^2
+\end{equation}
+++++
+, der stem:[W] er vektmatrisen og stem:[v] er restfeilene. Videre er stem:[n] antall observasjoner og stem:[e] antall ukjente.
+
+Dersom stem:[\begin{equation}\chi_{(n-e,\alpha/2)}^2<z<\chi_{(n-e,1-\alpha/2)}^2\end{equation}] aksepteres stem:[H_{0}], og stem:[\hat{s}_{0}^2] kan ikke påstås å være forskjellig fra stem:[\sigma_{0}^2].
+
+==== Estimering av grovfeil
+Grovfeilen estimeres normalt sammen med de ukjente ved å legge til en ny kolonne i designmatrisen med en ener for observasjonen som skal testes for grovfeil, og null ellers.
+
+[stem,Ekstrakolonne=formel 2]
+++++
+\begin{equation}
+  A_{i}=
+  \begin{bmatrix}
+    A & e_{i}\\
+  \end{bmatrix}
+\end{equation}
+++++
+Indeks stem:[i] betegner her at man skal teste for grovfeil i observasjon nr. stem:[i]. F.eks. er stem:[e_{1}^{T}]=\begin{bmatrix} 1 & 0 & 0 & . & 0\\ \end{bmatrix} ved estimering av grovfeil i observasjon nr. 1.
+
+[stem,A-matrise=formel 3]
+++++
+\begin{equation}
+  A_{1}=
+  \begin{bmatrix}
+    - & - & . & 1\\
+    - & - & . & 0\\
+    - & - & . & 0\\
+    . & . & . & .\\
+    - & - & . & 0\\
+  \end{bmatrix}
+\end{equation}
+++++
+
+Grovfeilen stem:[\hat{\nabla}_{i}] estimeres deretter sammen med de ukjente parametrene ved:
+
+[stem,Grovfeil=formel 4]
+++++
+\begin{equation} \label{eq:Grovfeil}
+  \hat{x}_{i}=(A_{i}^{T}WA_{i})^{-1}A_{i}^{T}Wl
+\end{equation}
+++++
+, der stem:[\hat{x}_{i}=\begin{bmatrix} - & - & . & \hat{\nabla}_{i} \end{bmatrix}^{T}]
+
+Kofaktormatrisen til de ukjente parametrene stem:[Q_{x}] er gitt som:
+
+[stem,Q-faktor_formel=formel 5]
+++++
+\begin{equation}
+  Q_{x}=(A_{i}^{T}WA_{i})^{-1}
+\end{equation}
+++++
+, og grovfeilens kofaktor, stem:[q_{\nabla\nabla}] er det siste elementet på diagonalen i kofaktormatrisen til de ukjente.
+
+[stem,Q-faktor_matrise=formel 6]
+++++
+\begin{equation}
+  Q_{x}=
+  \begin{bmatrix}
+    - & - & . & -\\
+    - & - & . & -\\
+    . & . & . & .\\
+    - & - & . & q_{\nabla\nabla}\\
+  \end{bmatrix}
+\end{equation}
+++++
+
+A posteriori standardavvik på vektsenheten uten innvirkning fra grovfeilen stem:[\nabla_{i}] estimeres ved:
+
+[stem,Std_Enhet=formel 7]
+++++
+\begin{equation}
+  \hat{s}_{0}^{2}=\frac{1}{n-e-1}(v_{i}^{T}Wv_{i})
+\end{equation}
+++++
+, der stem:[v_{i}=A_{i}\hat{x}_{i}-l].
+
+Merk at man får en frihetsgrad mindre fordi man bruker en observasjon til å estimere grovfeilen.
+
+Standardavviket til den estimerte grovfeilen kan nå beregnes som:
+
+[stem,Std_Nabla=formel 8]
+++++
+\begin{equation} \label{eq:StdGrovfeil}
+  \hat{\sigma}_{\nabla_{i}}=\hat{s}_{0}\sqrt{q_{\nabla\nabla}}
+\end{equation}
+++++
+
+==== Grovfeilsøk
+Hvor stor innvirkning en grovfeil har på resultatet er avhengig av geometrien i systemet og observasjonenes vekter.
+
+Hypotesene ved grovfeilsøk er:
+
+* stem:[H_{0}: \nabla_{i} = 0]
+* stem:[H_{1}: \nabla_{i} \neq 0]
+
+, der stem:[\nabla_{i}] er grovfeil i observasjon nr. stem:[i].
+
+Teststørrelsen ved multippel t-test er gitt som:
+
+[stem,T_value=formel 9]
+++++
+\begin{equation}
+  t=\frac{\hat{\nabla}_{i}}{\hat{\sigma}_{\nabla_{i}}} \sim t_{(n-e-1)}
+\end{equation}
+++++
+
+Dersom stem:[|t|>t_{(n-e-1,1-\alpha/2)}] vil stem:[H_{0}] forkastes og man påstår stem:[\nabla_{i} \neq 0], dvs. en sannsynlig grovfeil er _identifisert_ i observasjon nr. i.
+
+Observasjonen med størst t-verdi fjernes så fra systemet (_adapsjon_) og grovfeilsøket gjentas til alle observasjonene har passert testen.
+
+==== Globaltest
+For å teste om observasjonene passer med grunnlaget kan man sammenligne feilkvadratsummer, f.eks. sammenligne feilkvadratsumm fra friutjevning mot feilkvadratsum fra tvangsutjevning.
+
+Hypotesene for test av endring i feilkvadratsum er:
+
+* stem:[H_{0}: (v^{T}Wv)_{2}=(v^{T}Wv)_{1}]
+* stem:[H_{1}: (v^{T}Wv)_{2}>(v^{T}Wv)_{1}]
+
+Teststørrelsen i dette tilfellet er:
+[stem,F_value=formel 10]
+++++
+\begin{align}
+  f=&\frac{(v^{T}Wv)_{2}-(v^{T}Wv)_{1}/(\nu_{2}-\nu_{1})}{(v^{T}Wv)_{1}/{\nu_{1}}} &\sim F_{\nu_{2}-\nu_{1},\nu_{1}}
+\end{align}
+++++
+, der stem:[\nu_{1}=n_{1}-e_{1}] og stem:[\nu_{2}=n_{2}-e_{2}] er antall frihetsgrader.
+
+Dersom stem:[f<F_{(\nu_{2}-\nu_{1},\nu_{1},\alpha)}] aksepteres stem:[H_{0}], og stem:[(v^{T}Wv)_{2}] kan ikke påstås å være forskjellig fra stem:[(v^{T}Wv)_{1}].
+
+Er standardavvik på vektsenheten kjent, kan teststørrelsen skrives som:
+
+[stem,F_value_m0_Kjent=formel 11]
+++++
+\begin{equation}
+  z=\frac{(v^{T}Wv)_{2}-(v^{T}Wv)_{1}}{\sigma_{0}^2}\sim\chi_{(n-e)}^{2}
+\end{equation}
+++++
+
+Dersom stem:[z<\chi_{(n-e,\alpha)}^{2}], aksepteres stem:[H_{0}], og stem:[(v^{T}Wv)_{2}] kan ikke påstås å være forskjellig fra stem:[(v^{T}Wv)_{1}].
+
+==== Indre pålitelighet
+Med en observasjons redundans menes hvor stor andel av grovfeilen som vises i observasjonens restfeil. Redundansen til observasjon nr. stem:[i] er diagonalelementet stem:[r_{ii}] i matrisen stem:[R] gitt ved:
+
+[stem,Redundans=formel 12]
+++++
+\begin{equation}
+  R=Q_{v}W
+\end{equation}
+++++
+[stem,Redundans_Q=formel 13]
+++++
+\begin{equation}
+  Q_{v}=W^{-1}-AQ_{x}A^{T}
+\end{equation}
+++++
+, der stem:[Q_{x}=(A^{T}WA)^{-1}]. For ukorrelerte observasjoner er stem:[0<r_{ii}<1].
+
+Største gjenværende grovfeil estimeres ved å bruke endepunktene i et konfidensintervall rundt den estimerte grovfeilen. Man velger det endepunktet som har størst tallverdi:
+
+[stem,StorsteGjenvarende=formel 14]
+++++
+\begin{equation} \label{eq:StorsteGjenvarende}
+  \nabla_{max_{i}}=max(|\hat{\nabla}_{i}\pm \hat{\sigma}_{\nabla_{i}} \times t_{(n-e-1,1-\alpha/2)}|)
+\end{equation}
+++++
+
+Indre pålitelighet forteller altså hvor store grovfeilene kan være med den gitte sannsynlighet for riktig slutning.
+
+==== Ytre pålitelighet 
+Ytre pålitelighet gir svar på hvor stor skade de gjenværende grovfeilene kan gjøre på de ukjente, f.eks. koordinatene.
+
+[stem,Koordinatendring=formel 15]
+++++
+\begin{equation} \label{eq:PunktDef}
+  \Delta_{x_{i}}=(A^{T}WA)^{-1}A^{T}W\nabla_{max_{i}}
+\end{equation}
+++++
+, der stem:[\Delta_{x_{i}}] er såkalt deformasjon og stem:[\nabla_{max_{i}}=\begin{bmatrix} \nabla_{max} & 0 & 0 & . & 0\\ \end{bmatrix}^{T}] er største gjenværende grovfeil i observasjon nr. stem:[i].
+
+Det gjelder å finne den største deformasjonen og en trenger derfor rutiner som gjennomløper hele observasjonsmaterialet. Hvis stem:[\Delta_{x_{i}}] i \ref{eq:PunktDef} er deformasjoner på grunnrisskoordinater, er det nærliggende å se på deformasjonen i x- og y-retning samlet og finne den største _punktdeformasjonen_ som stem:[\sqrt{dx_i^2+dy_i^2}], der stem:[dx_i] og stem:[dy_i] er deformasjonen i x- og y-retningen for et punkt på grunn av en mulig gjenvårende feil i observasjon stem:[i]. 
+
+I et grunnlagsnett er vanligvis nabopålitelighet et mer hensiktsmessig kvalitetsmål enn enkeltpunktenes pålitelighet (punktdeformasjon) som vist i \ref{eq:PunktDef}. Med nabopålitelighet menes riktigheten av relative størrelser mellom nærliggende punkt som f.eks. avstand og retningsvinkel.  En viktig egenskap ved et grunnlagsnett er at et eventuelt retningsvinkelavvik eller avstandsavvik til nabopunkt ikke varierer mye fra et nabopunkt til et annet. Med andre ord ønsker en sanne [.underline]#vinkler# og lik [.underline]#målestokk# i alle retninger – akkurat som på et kart med konform avbilding. Resultatavvik som skyldes en grovfeil i observasjonsmaterialet, kalles gjerne en deformasjon.
+
+For å finne vinkel- og målestokksdeformasjonen i et punkt stem:[s], starter en med ligning \ref{eq:PunktDef}. I prinsippet må en for hver observasjon stem:[i], kombinere alle deformasjonene i stem:[\Delta_{x_{i}}] og i hvert punkt stem:[s] finne den største vinkel- og målestokksdeformasjonen. Når alle observasjonene er gjennomløpt sitter en igjen med den maksimale vinkeldeformasjonen og den maksimale målestokksdeformasjonen, samt målingen som forårsaket det. 
+
+Dette er en tidkrevende prosess, så ofte konsentrerer en seg om de nærmeste nabopunktene til hvert punkt. De er mest interessante og de mest kritiske. For å undersøke nabopunkt i ulike retninger omkring punktet, kan en dele inn i sektorer og velge et gitt antall punkt i hver sektor.
+
+La oss se på en observasjon i, og hvordan punktdeformasjonen stem:[\Delta_{x_{i}}] påvirker retningsvinkelen og avstanden mellom et punkt stem:[s] og et nabopunkt stem:[j]:
+
+[#Koordinatendringer-img]
+.Små deformasjoner i punktene stem:[s] og stem:[j] som følge av en mulig gjenværende feil
+image::images\skisse_deform.jpg[600,900] 
+
+I figur *10* over tenker en seg et nabopunkt stem:[j] i avstand stem:[D_{sj}] fra et punkt stem:[s], som en ønsker å undersøke. En observasjon stem:[i] har en mulig gjenværende feil stem:[\nabla_{max_{i}}] som skaper koordinatdeformasjonene stem:[d_{x_{s}}] og stem:[d_{y_{s}}] i punktet stem:[s] og tilsvarende stem:[d_{x{_j}}] og stem:[d_{x_{j}}] i nabopunket stem:[j] som vist i ligning \ref{eq:PunktDef}.
+
+Ved å legge til grunn at stem:[D_{sj}] er veldig mye større enn stem:[d_{x_{s}}], stem:[d_{y_{s}}], stem:[d_{x{_j}}] og stem:[d_{y_{j}}], ser en av figuren over at en kan omforme koordinatdeformasjonene til retning- og avstandsdeformasjoner mellom punktene: 
+
+[stem,Vinkelendring=formel 16]
+++++
+\begin{equation} \label{eq:retn_deform}
+   \Delta_{Retn_{sj}}=\frac{sin{\phi_{sj}}d_{x{_s}} + cos{\phi_{sj}}d_{y{_j}} - sin{\phi_{sj}}d_{x{_j}} - cos{\phi_{sj}}d_{y{_s}} }{D_{sj}}
+\end{equation}
+++++
+
+og
+[stem,Skalaendring=formel 17]
+++++
+\begin{equation} \label{eq:avst_deform}
+   \Delta_{Avst_{sj}}=\frac{cos{\phi_{sj}}d_{x{_j}} + sin{\phi_{sj}}d_{y{_j}} - cos{\phi_{sj}}d_{x{_s}} - sin{\phi_{sj}}d_{y{_s}} }{D_{sj}}
+\end{equation}
+++++
+
+Hvis en her angir stem:[d_{x_{s}}], stem:[d_{y_{s}}], stem:[d_{x{_j}}] og stem:[d_{y_{j}}] i mm og stem:[D_{sj}] i km, får både retning- og avstandsdeformasjonen enheten ppm (parts per million).
+
+Mellom punktet stem:[s] og alle nabopunktene beregnes for hver observasjon stem:[\max\limits_{j=1\rightarrow n}\Delta_{Retn_{sj}}] og stem:[\min\limits_{j=1\rightarrow n}\Delta_{Retn_{sj}}], der n er antall nabopunkt. Og maksimal vinkeldeformasjonen i et punkt stem:[s], forårsaket av en mulig gjenværende feil i observasjon stem:[i] blir:
+
+[stem,Max_Vinkelendring_en_obs=formel 18]
+++++
+\begin{equation} \label{eq:vinkel_deform}
+  \Delta_{i} = \max\limits_{j=1\rightarrow n}\Delta_{Retn_{sj}} - \min\limits_{j=1\rightarrow n}\Delta_{Retn_{sj}}
+\end{equation}
+++++
+
+Når alle observasjoner er gjennomløpt, finner en maksimal vinkeldeformasjon i punkt s som:
+
+[stem,Max_Vinkelendring_alle_obs=formel 19]
+++++
+\begin{equation} \label{eq:max_vinkel_deform}
+  \Delta_{Vinkel_{s}} = \max\limits_{i=1\rightarrow m}\Delta_{i}
+\end{equation}
+++++
+
+,der stem:[m] er antall observasjoner.
+
+Tilsvarende får en for målestokksdeformasjon:
+
+[stem,Max_Skaleendring_en_obs=formel 20]
+++++
+\begin{equation} \label{eq:diff_avst_deform}
+  \Delta_{i} = \max\limits_{j=1\rightarrow n}\Delta_{Avst_{sj}} - \min\limits_{j=1\rightarrow n}\Delta_{Avst_{sj}}
+\end{equation}
+++++
+
+og maksimal målestokksdeformasjon i punkt s blir:
+ 
+[stem,Max_Skaleendring_alle_obs=formel 21]
+++++
+\begin{equation} \label{eq:max_avst_deform}
+  \Delta_{Skala_{s}} = \max\limits_{j=1\rightarrow m}\Delta_{i}
+\end{equation} 
+++++
+
+Dette beregnes i alle punkt stem:[s].
+
+I denne standarden defineres både krav maksimal punktdeformasjon og til maksimal vinkel- og målestokksdeformasjon ved bestemmelse av koordinater til grunnlagspunkt.
+
+I det overstående er pålitelighetsberegninga begrenset til å se på virkningen av én gjenværende feil av gangen. I virkeligheten han det selvsagt forekomme flere grove feil samtidig, og de kan samvirke slik at deformasjonen i nettet blir forsterket. Å utvikle metodikken til å kunne handtere slike kombinatoriske feil er ikke trivielt og er ikke behandlet her.
+
+
+==== Bonferroni korreksjon
+Ved utføring av multiple sammenligninger i ett og samme datasett må signifikansnivået korrigeres for å ta høyde for den økte sannsynlighet for Type-I feil (dvs. sannsynligheten for å forkaste null-hypotesen når den er sann).
+
+Sannsynligheten for _ikke_ å gjøre en Type-I feil ved stem:[n] multiple tester kan skrives som:
+
+[stem,Bonferroni=formel 23]
+++++
+\begin{equation}
+  (1-\alpha) \cdot (1-\alpha) \dots = (1-\alpha)^{n}
+\end{equation}
+++++
+
+Vi må videre skille mellom to betydninger av signifikansnivået stem:[\alpha]:
+
+
+* stem:[\alpha_{pt}] er sannsynligheten for å gjøre en Type-I feil _per test_.
+* stem:[\alpha_{pf}] er sannsynligheten for å gjøre en Type-I feil _per familie av tester_.
+
+
+Sannsynligheten for å gjøre minst en Type-I feil for multiple tester kan skrives som:
+[stem,Bonferroni_2=formel 24]
+++++
+\begin{equation}
+ \alpha_{pf}=1-(1-\alpha_{pt})^{n}
+\end{equation}
+++++
+
+Motsatt kan dette uttrykkes som:
+[stem,Bonferroni_3=formel 25]
+++++
+\begin{equation}
+ \alpha_{pt}=1-(1-\alpha_{pf})^{1/n}
+ \label{sidak}
+\end{equation}
+++++
+
+Ofte approksimeres dette uttrykket ved kun den lineære delen av Taylorekkeutviklingen av (\ref{sidak}), og kalles da for _Bonferroni_ korreksjon.
+
+[stem,Bonferroni_4=formel 26]
+++++
+\begin{equation} \label{eq:EnkeltNiva}
+ \alpha_{pt} \approx \frac{\alpha_{pf}}{n}
+\end{equation}
+++++
+, der stem:[n] er antall observasjoner i materialet som skal testes.
+
+_Merknad_
+
+Ved multippel t-test må man altså ta hensyn til at stem:[\nabla_{i}] er en av stem:[n] mulige grovfeil i observasjonsmaterialet.
+
+Utgangspunktet er sannsynligheten for en hendelse gitt som:
+[stem,Bonferroni_4=formel 27]
+++++
+\begin{equation}
+  p_{i}=1-\alpha_{i}
+\end{equation}
+++++
+, dvs. at den totale sannsyligheten for samme hendelse stem:[n] ganger ved uavhengige observasjoner vil være:
+
+[stem,Bonferroni_Total=formel 28]
+++++
+\begin{equation}
+ p_{tot}=p_{1} \cdot p_{2} \cdot p_{3} \cdots p_{n}=p^{n}
+\end{equation}
+++++
+
+Det vi ønsker oss er et uttrykk for den totale sannsynligheten for å _ikke_ gjøre en Type-I feil:
+
+[stem,Bonferroni_Total_ikke=formel 29]
+++++
+\begin{equation}
+  p_{tot}=1-\alpha_{tot}
+\end{equation}
+++++
+, men for å få til dette må sannsynligheten for hver en enkelt test settes lik:
+
+[stem,Bonferroni_enkel=formel 30]
+++++
+\begin{equation}
+  p_{i}=(1-\alpha_{tot})^{1/n}
+\end{equation}
+++++
+
+Merk at ved et stort antall observasjoner settes nedre grense for signifikansnivået til f.eks. stem:[\alpha=0.001].
+
+_Eksempel_
+\begin{align*}
+  n=&4\\
+  e=&2\\
+  \alpha=&0.025\\
+\end{align*}
+\begin{align*}
+  p_{i}=(1-\alpha_{tot})^{1/n}=0.994\\
+  \alpha_{i}=0.006\\
+\end{align*}
+\begin{align*}
+  T_{(2,0.006)}=&9.9\\
+ (T_{(2,0.025)}=&4.3)\\
+\end{align*}
+
+==== Konfidensellipser
+En konfidensellipse er definert ved at den med en gitt sannsynlighet inneholder er nærmere angitt beregnet punkt. Den avledes normalt fra en feilellipse.
+
+Gitt et estimat på koordinatene stem:[\hat{x}]. Feilellipser tar utgangspunkt i kovariansmatrisen til koordinatene stem:[\Sigma_{x}]:
+
+\begin{equation}
+  \Sigma_{x}=
+  \begin{bmatrix}
+    \sigma_{1}^{2} & \sigma_{12} \\
+    \sigma_{21} & \sigma_{2}^{2} \\
+  \end{bmatrix}
+\end{equation}
+, der stem:[\Sigma_{x}] er positiv definitt slik at den inverse eksisterer.
+
+En statistiker ville skrive stem:[x \sim N_{2}(x,\Sigma_{x})] som betyr at stem:[x] har en todimensjonal normalfordeling med forventning stem:[x] og kovarians stem:[\Sigma_{x}].
+
+Vektoren stem:[x] ligger med en gitt sannsynlighet innenfor en kurve beskrevet av den kvadratiske formen:
+
+[stem]
+++++
+\begin{equation}
+  x^{T}\Sigma_{x}^{-1}x=c^{2}
+\end{equation}
+++++
+
+Siden stem:[\Sigma_{x}] er positiv definitt vil denne kurven være en ellipse.
+
+Egenvektorene til stem:[\Sigma_{x}] diagonaliserer matrisen (og dens inverse):
+
+
+[stem]
+++++
+\begin{equation}
+  y^{T}
+  \begin{bmatrix}
+    \lambda_{1} & 0\\
+    0 & \lambda_{2}\\
+  \end{bmatrix}^{-1}
+  y=c^{2}
+\end{equation}
+++++
+[stem]
+++++
+\begin{equation}
+  \frac{y_{1}^{2}}{(c\sqrt{\lambda_{1}})^{2}}+\frac{y_{2}^{2}}{(c\sqrt{\lambda_{2}})^{2}}=1
+\end{equation}
+++++
+, der stem:[\lambda_{1}] og stem:[\lambda_{2}] er egenverdiene til matrisen stem:[\Sigma_{x}^{-1}], og stem:[y^{T}=\begin{bmatrix} y_{1} & y_{2} \end{bmatrix}] er en egenvektor. Dette er feilellipsen. 
+
+Ofte setter man stem:[c=\sigma_{0}].
+
+Feilellipsens orientering bestemmes fra:
+[stem]
+++++
+\begin{equation}
+  y=
+  \begin{bmatrix}
+    \cos \phi \\
+    \sin \phi \\
+  \end{bmatrix}
+\end{equation}
+++++
+
+, der stem:[\phi] er retningsvinkelen til den aktuelle egenvektoren.
+
+Parametrene som beskriver feilellipsen kan beregnes som følger:
+[stem]
+++++
+\begin{align}
+  a=&c\sqrt{\lambda_{1}}\\
+  b=&c\sqrt{\lambda_{2}}\\
+  \phi=&\arctan(\frac{y_{2}}{y_{1}})
+\end{align}
+++++
+Parametrene til feilellipsen kan også beregnes direkte fra stem:[\Sigma_{x}]:
+
+[stem]
+++++
+\begin{align}
+  \lambda_{1}=\frac{1}{2}(\sigma_{1}^{2}+\sigma_{2}^{2}+\sqrt{(\sigma_{1}^{2}+\sigma_{2}^{2})^{2}-4(\sigma_{1}^{2}\sigma_{2}^{2}-\sigma_{12}^{2})})\\
+  \lambda_{2}=\frac{1}{2}(\sigma_{1}^{2}+\sigma_{2}^{2}-\sqrt{(\sigma_{1}^{2}+\sigma_{2}^{2})^{2}-4(\sigma_{1}^{2}\sigma_{2}^{2}-\sigma_{12}^{2})})
+\end{align}
+++++
+
+Retningsvinkelen stem:[\phi] for ellipsens lange akse er gitt ved:
+
+[stem]
+++++
+\begin{equation}
+  \tan(2\phi)=\frac{2\sigma_{12}}{\sigma_{1}^{2}-\sigma_{2}^{2}}
+\end{equation}
+++++
+
+Konfidensellipsen finnes så ved å velge en passende verdi for stem:[c] slik at ellipsen med en gitt sannsynlighet inneholder det aktuelle punktet.
+
+Merk at konfidensellipsen _ikke_ direkte vil vise standardavviket i de ulike retningene. Dette er kun tilfelle dersom konfidensellipsen er en sirkel.

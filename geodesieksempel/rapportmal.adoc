@@ -1,0 +1,51 @@
+=== Mal for rapport
+
+==== Generelt
+* Oppdragets navn
+* Beskrivelse av oppdraget inkl. kvalitetskrav.
+* Oppdragsgiver
+* Oppdragstaker
+* Fagansvarlig
+* Eventuelle underleverandør 
+
+==== Geodetisk referanse
+* Referanseramme (datum, projeksjon, sone) grunnriss
+* Referanseramme (datum) høyde
+* Grunnlagspunkter i grunnriss og høyde med nøyaktighet og dokumentasjon. Dokumentasjon kan være referanse til sentralt register, oppdragsgivers leveranse eller pålitelighetsanalyse av egne etablerte grunnlagspunkt
+
+==== Feltarbeidet
+•	Hvem har bestemt plassering og utført boltsetting/oppsetting av søyler? Oppgi hvordan fastmerker er markert, bolt/søyle i fjell, rør/spyd i jord eller annet. Angi referanse i grunnriss og høyde. Når er arbeidene utført og søylene loddet opp?
+•	Hvem har utført målingene og hvordan er målearbeidet utført?
+•	Angi hvilke instrumenter som er benyttet og deres serienumre. Når var de senest på service/kalibrering? Er det utført egenkalibrering før måling?
+•	Når ble treføtter kontrollert?
+•	Hvordan er antenne, instrument- og siktehøyder målt?
+•	Hvordan er GNSS-målinger utført? (vektorer og/eller punktobservasjoner)
+•	Hvordan er totalstasjonsmålinger utført? 
+•	Hvordan er nivellement utført?
+•	Spesielle forhold?
+
+==== Beregning
+•	Hvem har utført/er ansvarlig for beregningene?
+•	Hvilken programvare og versjonsnummer er benyttet?
+•	Kommenter hvordan vektorberegninger er utført  
+•	Kommenter test av observasjoner
+•	Kommenter test av grunnlag/test av endringer
+•	Kommenter utjevningen. Vekting av observasjoner og observasjonstyper? Middelverdi av totalstasjonsmåling?
+•	Kommenter pålitelighetsanalysen. Hvilke kvalitetsklasse tilfredsstiller punktene i grunnriss og høyde?
+
+==== Dokumentasjon
+•	Samtlige rådata, observasjons-, prosjekt- og resultatfiler skal leveres oppdragsgiver. Dataene skal også oppbevares hos oppdragstaker. 
+•	Resultatfilene skal omfatte:
+-	Test av observasjoner
+-	Test av grunnlag/test av endringer
+-	Indre pålitelighet
+-	Ytre pålitelighet
+-	Utjevning
+-	Dokumentert kontroll i landsnettpunkter ved bruk av punktobservasjoner.
+-	Koordinatsliste
+-	Observasjonsriss/grafisk oversikt
+-	Rapporten
+
+==== Resultat og vurderinger
+•	Liste over alle nybestemte punkter med kvalitetsmål
+•	Liste som viser punktenes kvalitetsmål i forhold til kravene 

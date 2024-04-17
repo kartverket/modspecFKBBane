@@ -23,29 +23,30 @@
 = {standardtype}: {standardfulltittel}
 :encoding: utf-8
 :lang: nb
-// Sett til nn for dokumenter på nynorsk
-include::Språk-{lang}.adoc[]
 :doctype: book
+:pdf-page-size: A4
+:title-page-background-image: image:images/forsidebilde_kartverketstandarder.jpg[]
 :toc: left
+ifdef::backend-pdf[:toc: macro]
 :toc-title: Innhold
 :toclevels: 4
 :sectnums:
 :sectnumlevels: 4
 :numbered:
 :!chapter-signifier: 
-:!example-caption:
+:appendix-caption: Vedlegg
+:figure-caption: Figur
+:table-caption: Tabell
+:section-refsig: Kapittel
+:version-label: Versjon
 :icons: font
 :stem: latexmath
 :eqnums:
-// fjern "latexmath" dersom du ønsker å bruke asciimath til matematiske formler
-:source-highlighter: rouge
-
-//URLer til standard og UML-modell.  Forandre verdiene til de som gjelder for denne standarden
-:standardurl: https://sosi.geonorge.no/standarder/{standardtittelURL}
-:umlurl: https://sosi.geonorge.no/standarder/{standardtittelURL}/{standardversjon}/modell.html
-
-
-//START: URLer til skjema.  Kan fjernes dersom det ikke er noe skjema tilhørende standarden.
+//:important-caption: MERK
+//:warning-caption: MERK
+ifeval::["{dokumentnivå}" == "HØRING"]
+:page-background-image: image:images/høringsversjon.png[]
+endif::[]
 // kode for å velge TEST eller PUB skjemaserver.
 ifeval::["{dokumentnivå}" == "UTKAST"]
 :skjemaserver: TEST
@@ -66,64 +67,61 @@ ifeval::["{dokumentnivå}" == "TILBAKETRUKKET"]
 :skjemaserver: PUB
 endif::[]
 
+//URLer og filnavn.  Forandre verdiene til de som gjelder for denne standarden
+:standardurl: https://sosi.geonorge.no/standarder/{standardtittelURL}
+:umlurl: https://sosi.geonorge.no/standarder/{standardtittelURL}/{standardversjon}/modell.html
+:pdffilnavn: filnavn.pdf
+
 ifeval::["{skjemaserver}" == "TEST"]
-// url til skjemaserver for ikke-publiserte skjemaer.
-:skjemaserverURL: https://skjema.test.geonorge.no/
+//url til testversjoner for skjemaer basert på denne standarden. Sett inn riktig URL
+//dersom det ikke er skjemaer basert på denne standarden, kan dette fjernes
+:gmlskjema: https://skjema.geonorge.no/url_til_test_gml-skjema
+:schematronskjema: https://skjema.geonorge.no/url_til_test_schematron
+:rdfskjema: https://skjema.geonorge.no/url_til_test_rdf-skjema
 endif::[]
 
 ifeval::["{skjemaserver}" == "PUB"]
 //url til endelig versjon av skjemaer basert på denne standarden. Sett inn riktig URL
-:skjemaserverURL: https://skjema.geonorge.no/
+//dersom det ikke er skjemaer basert på denne standarden, kan dette fjernes
+:gmlskjema: https://skjema.geonorge.no/url_til_gml-skjema
+:schematronskjema: https://skjema.geonorge.no/url_til_schematron
+:rdfskjema: https://skjema.geonorge.no/url_til_rdf-skjema
 endif::[]
 
-:gmlskjema: {skjemaserverURL}sti_til_gml-skjema
-:schematronskjema: {skjemaserverURL}sti_til_schematron-skjema
-:rdfskjema: {skjemaserverURL}sti_til_rdf-skjema
-
-//SLUTT: URLer til skjema
-
-ifeval::["{dokumentnivå}" == "UTKAST"]
-IMPORTANT: Dette er et utkast til en standard.  Standarden er ikke vedtatt.
-endif::[]
 ifeval::["{dokumentnivå}" == "HØRING"]
 IMPORTANT: Dette er høringsversjonen til {standardtittel} {standardversjon}.  Standarden er ikke vedtatt.
 endif::[]
-ifeval::["{dokumentnivå}" == "TILGODKJENNING"]
-IMPORTANT: Denne standarden venter på godkjenning i Standardiseringskomiteen for Geomatikk. Standarden er ikke vedtatt.
-endif::[]
 ifeval::["{dokumentnivå}" == "ERSTATTET"]
-WARNING: Denne versjonen av standarden er erstattet av en nyere versjon og er ikke lenger anbefalt i bruk.
+WARNING: Denne versjonen av standarden er erstattet av en nyere versjon.
 endif::[]
 ifeval::["{dokumentnivå}" == "TILBAKETRUKKET"]
 WARNING: Denne standarden er trukket tilbake og er ikke lenger anbefalt i bruk.
 endif::[]
 
 ****
-// Metadatablokk
 
 *Publisert:* {publikasjonsdato} +
-// *Bekreftet ved gjennomsyn:* 20åå-mm-dd +
-// Dersom standarden har gjenomått systematisk gjennomsyn og er bekreftet, fjern kommentaren og sett dato.
+*Bekreftet ved gjennomsyn:* 20åå-mm-dd +
 *Denne versjonen finnes på:* link:{standardurl}/{standardversjon}[] + 
+*Dette dokumentet kan også lastes ned link:{standardurl}/{standardversjon}/{pdffilnavn}[som PDF]* +
 *Gjeldende versjon finnes på:* link:{standardurl}[] +
 ifeval::[{erstattetversjon} != 0]
 *Denne versjonen erstatter:* link:{standardurl}/{erstattetversjon}[] +
 endif::[]
 *Dokumenttype:* {standardtype} +
-// Den neste linken fjernes dersom det ikke er noen UML-modell tilhørende standarden.
 *link:{umlurl}[HTML-visning av UML-modell]* +
 
 ifeval::["{dokumentnivå}" == "UTKAST"]
-Utkast - ikke vedtatt standard.
+Utkast - ikke vedtatt standard
 endif::[]
 ifeval::["{dokumentnivå}" == "HØRING"]
-Høringsversjon - ikke vedtatt standard.
+Høringsversjon - ikke vedtatt standard
 endif::[]
 ifeval::["{dokumentnivå}" == "TILGODKJENNING"]
-Til godkjenning i Standardiseringskomiteen for geomatikk - ikke vedtatt standard.
+Til godkjenning i Standardiseringskomiteen for geomatikk - ikke vedtatt standard
 endif::[]
 ifeval::["{dokumentnivå}" == "GODKJENT"]
-Vedtatt som standard av standardiseringskomiteen for geomatikk.
+Vedtatt som standard av standardiseringskomiteen for geomatikk
 endif::[]
 ifeval::["{dokumentnivå}" == "ERSTATTET"]
 Denne versjonen av standarden er erstattet av en nyere versjon.
@@ -137,16 +135,21 @@ endif::[]
 LISENSVILKÅR
 ////
 
-.Lisens
-****
+[discrete]
+==== Lisens
+
 //// 
 LISENSVILKÅR:  Dersom det er en standardisert produktspesifikasjon gitt ut under SOSI, skal lisensen oppgitt i Lisensvilkår.adoc.  For andre produktspesifikasjoner kan andre lisensvilkår gjelde.
 ////
+
+
 include::Lisensvilkår.adoc[]
+
 ////
 SLUTT Lisensvilkår 
 ////
-****
+
+ifdef::backend-pdf[toc::[]]
 
 == Orientering og introduksjon
 // Kort om hva denne standarden går ut på
@@ -183,26 +186,21 @@ standardiseringssekretariatet@kartverket.no |
 // Liste over normative referanser. 
 FOR-20xx-xx-xx-xxxx: Forskrift om noe +
 ISO 191xx:20xx Geographical Information - Standardtittel +
-SOSI Generell Del - Regler for UML-modellering 5.1
+SOSI Generell Del - Regler om UML-modellering 5.1
 // Det over er eksempler - bytt ut med de normative referansene som faktisk er i bruk.
 
-// Dersom standarden er uten normative referanser, oppgi:
+// Dersom standarden er uten normative referanser, oppgi
 // Denne standarden har ingen normative referanser
 
 == Definisjoner og forkortelser
 
 === Definisjoner
-// Liste over begreper - termer med definisjoner brukt i standarden. Dersom termene er hentet fra andre standarddokumenter, skal kilde oppgis.  Begrepene bør sorteres alfabetisk etter term.
-.term for begrep
-[#term_for_begrep]
+// Liste over begreper - termer med definisjoner brukt i standarden. Dersom termene er hentet fra andre standarddokumenter, skal kilde oppgis
+*Term for begrep* +
 definisjon på begrepet, skrevet på en slik måte at termen kan byttes ut med definisjonen +
 Kilde: Standard eller dokument begrepet er hentet fra +
 Merknad: Rundt bruken i dette standarddokumentet
 //Det over er eksempel på hvordan en definisjonsblokk kan se ut.  Bytt ut med definisjoner som faktisk er i bruk i standarden.
-
-.term for enda et begrep
-[#term_for_enda_et_begrep]
-definisjon for enda et begrep, kan referere til <<term_for_begrep>> for å klargjøre hvis man unngår sirkeldefinisjoner
 
 === Forkortelser
 // Forkortelser brukt i standarden
@@ -221,96 +219,12 @@ definisjon for enda et begrep, kan referere til <<term_for_begrep>> for å klarg
 // Følgende kapittel tar utgangspunkt i at det er en fagområdestandard/informasjonsmodell for fagområde. Standarder som ikke er fagområdestandarder kan ha annen kapittelinndeling
 == Applikasjonsskjema
 
-include::modell.adoc[leveloffset=1,lines=2..-1]
-
-// Følgende kapitler inneholder nyttige eksempler som kan hjelpe med å komme i gang med asciidoc. Dette kapittelet er kun ment som eksempler, og skal ikke være en del av en standard.
-== Eksempelkapittel
-
-=== Krav
-// Dette er eksempler på hvordan kravbokser kan settes opp.
-
-.krav/nøkkelord/skal
-[#krav-nøkkelord-skal]
-====
-Krav skal bruke nøkkelordet _"skal"_.
-====
-
-.krav/nøkkelord/bør
-[#krav-nøkkelord-bør]
-====
-Anbefalinger skal bruke nøkkelordet _"bør"_.
-====
-
-.krav/nøkkelord/kan
-[#krav-nøkkelord-kan]
-====
-Tillatelser skal bruke nøkkelordet _"kan"_.
-====
-
-.anbefaling/anbefalinger
-[#anbefaling-anbefalinger]
-====
-En standard bør inneholde anbefalinger.
-====
-
-.tillatelse/tillatelser
-[#tillatelse-tillatelser]
-====
-En standard kan inneholde tillatelser.
-====
-
-Kravet <<krav-nøkkelord-skal>> omhandler bruk av nøkkelordet "skal".
-
-=== Matematikk
-// Malen er satt opp til å bruke LaTeX-notasjon for matematikk.
-
-Matematikk i løpende tekst: stem:[\sqrt{\frac{1}{x}}] 
-
-Matematikk i egen blokk:
-
-[stem#integral,reftext=formel 1]
-++++
-\begin{equation}
-\int_{0}^{\infty}\frac{1}{x^2}dx
-\end{equation}
-++++
-
-Se <<integral>>.
-
-[stem#eq-2,reftext=formel 2]
-++++
-\begin{equation}
-\cos^2(x)+\sin^2(x)=1
-\end{equation}
-++++
-
-se også <<eq-2>>
-
-=== Figur
-
-.Tittel på figur
-image::images\epleblomst.jpg["Bilde av epleblomster"]
-// Merk: Figurer skal ha en alternativ tekst (her: "Bilde av epleblomster")
-
-(((=== Tabell
-
-.Tittel på tabell
-[width="100%",cols="1,2,2",options="header"]
-|====================
-| Dato | Oppgave | Utført av  
-| 23. januar 2023 | Oppdatere standardmal | Åsmund |  
-|====================)))=== Tabell
-
-.Tittel på tabell
-[width="100%",cols="1,2,2",options="header"]
-|====================
-| Dato | Oppgave | Utført av  
-| 23. januar 2023 | Oppdatere standardmal | Åsmund |  
-|====================
+//include::modell.adoc[leveloffset=1,lines=2..-1]
 
 [appendix]
 == Vedlegg 1 (Normativt)
 // Vedlegg settes inn ved å sette [appendix] foran overskriften.
+{gmlskjema}
 
 [appendix]
 == Vedlegg 2 (Informativt)

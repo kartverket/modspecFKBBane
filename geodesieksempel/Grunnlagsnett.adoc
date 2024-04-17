@@ -1,0 +1,320 @@
+:stem: latexmath  
+:eqnums:
+
+=== Grunnlagspunkt og grunnlagsnett +
+Denne standarden gjelder ved oppmålingsarbeid der det fastsettes koordinater i grunnriss og/eller høyde til varige grunnlagspunkt. Et eksempel er offentlige fastmerker som benyttes til eiendomsmåling og kartlegging, et annet er fastmerker i et bygg- og anleggsnett. +
+
+Kvalitetsmålene gjelder for koordinater bestemt i kartprojeksjonsplanet eller som høyder over geoiden eller ellipsoiden. Dersom beregninga utføres med andre koordinatsystemer, må resultatet konverteres til koordinater i kartplanet og/eller høyder over geoide/ellipsoide, og det konverterte resultat må dokumenteres i henhold til kvalitetsmålene i denne standard.
+
+====	Generelle og prinsipielle forhold +
+Denne standarden plasserer ansvaret 100% hos den utførende. Det er utførende sitt ansvar at koordinatene tilfredsstiller kvalitetskravene i denne standard. +
+
+Det skal utføres en pålitelighetsanalyse for å dokumentere at de beregnede koordinater tilfredsstiller de fastsatte krav. En utført pålitelighetsanalyse fritar imidlertid ikke den utførende for ansvar dersom det senere viser seg at koordinatene likevel ikke tilfredsstiller kravene. +
+
+Standarden fastsetter bare krav til resultatet, og inneholder ingen "underveiskrav" i form av målemetode, instrumentutrustning eller lignende. +
+
+Når det i avtaler henvises til denne standard, må kvalitetskravet eller -kravene spesifiseres ved å angi kvalitetsklasse(r). 
+
+Kvalitetskravene i denne standarden angir tillatte grenseverdier, tålegrenser som aldri skal overskrides. Beregnede standardavvik eller konfidensintervall er generelle statistiske størrelser som ikke er målrettet for dette formål og kan gi en falsk trygghet. I stedet skal kvalitetsangivelsen baseres på pålitelighetsanalyser som uttrykker mulige gjenværende grovfeils direkte virkning på kvalitetsmålene og standardavvik skal kun betraktes som tilleggsinformasjon.
+
+Hvilke krav som skal gjelde avhenger av hva grunnlagspunktene skal brukes til. Egne standarder kan regulere dette. Verdiene i kapittlene <<Krav til relativ pålitelighet>> og <<Krav til absolutt pålitelighet>> er veiledende eksempler for noen typer av grunnlagspunkt.
+
+==== Om beregning av grunnlagspunkt
+Det er viktig at en kan stole på grunnlagspunktene, og de bestemmes derfor alltid med kontroll ved at punktene bestemmes med flere uavhengige målinger og oftest ved at flere punkter bestemmes samtidig i et nett eller drag.
+
+Graden av kontroll avhenger av måleopplegg, observasjonsnett og målenøyaktighet, og dette er til slutt avgjørende for punktkoordinatenes kvalitet. For sikre seg at den ønskede kvalitet er oppnådd, må det gjøres en del analyser.
+
+Det er vanlig at disse analysene gjøres før den endelige utjevninga. Viser analysene at det er lite sannsynlig at ønsket kvalitet er oppnådd, må det utføres tilleggsmålinger. Etter denne standard skal det gjennomføres en pålitelighetsanalyse, og en beregning av grunnlagsnett vil da typisk bestå av følgende trinn:
+
+* Grovfeilstest
+* Indre pålitelighetsanalyse
+* Ytre pålitelighetsanalyse
+* Utjevning etter minste kvadraters metode
+
+Ved beregning av grunnlagspunkt tar en vanligvis utgangspunkt i andre grunnlagspunkt, og en vil ofte undersøke om deres koordinater er riktige. Slike tester er omtalt i vedlegg *B*.
+
+En ytre pålitelighetsanalyse er et viktig hjelpemiddel, både for utførende beregner og oppdragsgiver, i vurderingen av om  kravet til pålitelighet er oppnådd. Vanligvis forholder en seg til flere grunnlagspunkt samtidig, slik at grenseverdiene er satt til forhold mellom nabopunkt, og det stilles krav til _relativ pålitelighet_.  Er forholdet til nabopunkt av mindre interesse, kan det settes krav til _absolutt pålitelighet_ i stedet. Føringer fra oppdragsgiver eller bransjestandarder bestemmer  hvilket pålitelighetsmål med tilhørende grenseverdier som skal gjelde.
+
+I en ytre pålitelighetanalyse ser en på virkningen, også kalt utslaget eller deformasjonen, av gjenværende feil på utjevnede koordinater eller funksjoner av disse. Tallverdier for ytre pålitelighet må vurderes opp mot tillatte grenseverdier Δ , tålegrenser som ikke skal overskrides. Er tallverdiene fra ytre pålitelighetsanalysen mindre enn grenseverdien, har en sannsynliggjort at kvalitetskravet er tilfredsstilt. 
+
+==== Krav til relativ pålitelighet
+Med relativ pålitelighet menes i denne standarden nærheten til sann verdi for målfunksjoner som kan utledes fra koordinatene til flere fastmerker. 
+
+[[tab-Relative_nøyaktighetskrav]]
+.Kravklasse Relative pålitelighetskrav
+[cols="1,4",options="header"]
+|===
+|Kravklasse	|Relative pålitelighetskrav
+|Avhengighet	|Koordinatbasert referansesystem
+.3+|Krav	|<<Krav-10-Grunnriss>>
+|<<KRAV_11_Høyde>>
+|<<Krav-14-Beregningsdokumentasjon>>
+|===
+
+Målfunksjoner etter denne standard er
+
+* For grunnriss: vinkel og avstandsforhold. Med avstandsforhold forstås her avstandsdifferansen fra et felles fastmerke til to andre, analogt til en vinkel som er retningsvinkeldifferansen fra et felles fastmerke til to andre. En endring av vinkel eller avstandsforhold uttrykkes i ppm. En endring av avstandsforholdet blir da en målestokksulikhet i grunnlagsnettet for de involverte fastmerkene. +
+* For høyde: høydeforskjell mellom to fastmerker. +
+
+[#deformasjon-img ]
+.Deformasjon
+
+image::images\deformasjon.jpg[400,1500]
+
+I figur *7* vises på venstre side hvordan vinkelen endres som følge av at retningsvinkelene AB og AC endres når koordinatene i endepunktene endres. Vinkelendringen angis i ppm. (Pilene angir de tangtentielle koordinatendringene, som har størst effekt på vinkelen). +
+På figurens høyre side vises hvordan avstandsforholdet endres ved at avstandene AB og AC påvirkes når koordinatene i endepunktene endres. Avstandsendringene angis i ppm og uttrykker da en målestokksforskjell. (Pilene angir radielle koordinatendringer, som har størst effekt på avstandsforholdet.)
+
+
+===== Grunnrisskrav
+For å ivareta den relative påliteligheten anvendes i denne standarden kvalitetsmålene _vinkelavvik_ og _målestokksavvik_, også kalt vinkeldeformasjon og målestokksdeformasjon. Kvalitetsmålene er forsøkt illustrert i figur *7*. +
+
+Avviksmålene er ofte kritiske for fastmerkenes innbyrdes brukbarhet.
+Tillatt vinkelavvik og målestokksavvik angis som en tillatt grenseverdi ∆, som defineres ved hjelp av to parametre: +
+
+p – en konstant angitt i ppm + 
+k – en tilfeldig feil i hvert punkt angitt i mm +
+
+For to linjer s1 og s2 mellom ett fastmerke og to vilkårlige andre fastmerker i innbyrdes avstand s3 blir tillatt grenseverdi ∆ for vinkelavvik og målestokksavvik:
+
+[#grunnrisskrav-img]
+.Formel for beregning av grunnrisskrav
+image::images\grunnrisskrav.jpg[Koordinatendringer,600,3000]
+
+Δ i ppm ("parts per million" = milliontedeler) +
+s1, s2, s3 i km +
+
+Δ gjelder for linjekombinasjonen s1, s2, s3, se figur *8*. +
+
+Se vedlegg *D* for utledningen av formelen for tillatt grenseverdi. +
+
+Grunnrisskravet for både vinkel- og målestokksavvik bestemmes av valgt kvalitetsklasse i tabell *<<tab_Relative_Krav>>*. (relative krav). De tilhørende p og k vil da, sammen med sidene s1 s2 og s3, definere tillatt grenseverdi Δ fra hvert enkelt fastmerke til alle andre fastmerker. Kravene gjelder også dersom det ikke er målt mellom fastmerkene, og de skal være tilfredsstilt for alle forbindelser mellom fastmerker.
+
+
+:table-caption: Tabell
+[[tab_Relative_Krav]]
+.Parametre for å beregne tillatt grenseverdi Δ i grunnriss
+[width="75%",options="header"]
+[cols="3,2,2,5"]
+|===
+|Kvalitetsklasse|p (ppm)|k (mm)| Eksempel på aktuell bruk
+|1a|3|3| Nasjonale nett, PGS-er
+|2a|6|6| Nasjonale nett
+|3a|10|10| Bygg- og anleggsnett
+|4a|20|20| Kartlegging i utbyggingsområder
+|5a|50|50| Diverse annet
+|===
+
+Eksempel:
+For s1 = s2 = s3 = 1 km blir tillatt grenseverdi Δ i kvalitetsklasse 3a:
+
+[#grunnrisseksempel-img]
+image::images\Eksempel_grunnriss.jpg[Koordinatendringer,300,3000]
+
+Målestokken tillates altså å variere med maksimalt 20 ppm mellom sidene s1 og s2, og vinkelen mellom dem må stemme innen 20 milliontedels radian, som utgjør 1,3 milligon.
+Beregning av tillatt grenseverdi for linjekombinasjonen s1 = s2 = s3 = 1 km i de forskjellige kvalitetsklassene gir følgende resultat:
+
+:table-caption: Tabell
+[[tab_Relative_Krav_Eksempel]]
+.Tillatte grenseverdier når s1 = s2 = s3 = 1 km
+[width="75%",options="header"]
+[cols="4,1,1,1,1,1"]
+|===
+|Kvalitetsklasse|1a|2a|3a|4a|5a
+|Tillatt grenseverdi i ppm|6|12|20|40|100
+|Tillatt grenseverdi i milligon|0.4|0.8|1.3|2.5|6.4
+|===
+
+====
+[[Krav-10-Grunnriss]]
+.KRAV 10 Grunnriss (relativt)
+////
+Ved bestemmelse av grunnrisskoordinater til grunnlagspunkt etter denne standard skal det henvises til ei kvalitetsklasse for vinkel- og målestokksavvik og/eller ei kvalitetsklasse for absolutte avvik. Beregnede verdier for ytre pålitelighet skal aldri overskride grensverdien i angitt kvalitetsklasse.
+////
+////
+Ved bestemmelse av grunnrisskoordinater til grunnlagspunkt skal det henvises til ei kvalitetsklasse for vinkel- og målestokksavvik og/eller ei kvalitetsklasse for absolutte avvik. Kvalitetsklassa definerer grenseverdier som aldri skal overskrides. 
+////
+
+Når det stilles krav til relativ pålitelighet mellom grunnlagspunkt, skal det ved bestemmelse av grunnrisskoordinater henvises til  to parametere *p* og *k* (eller en kvalitetsklasse) som definerer et vinkel- og målestokksavvik som aldri skal overskrides.
+
+En pålitelighetsanalyse skal utføres  for å sannsynliggjøre at kravet er tilfredsstilt. 
+====
+
+===== Høydekrav
+For å ivareta den relative nøyaktigheten i høyde anvendes i denne standarden kvalitetsmålet avvik på høydeforskjell. +
+
+Avvik på høydeforskjell er mål for avvik fra “sann” høydeforskjell mellom to fastmerker.
+Tillatt avvik på høydeforskjell angis som en tillatt grenseverdi ∆, som defineres ved hjelp av to parametere: +
+
+* p – en konstant angitt i ppm +
+* k – en tilfeldig feil i hvert punkt angitt i mm +
+
+For to punkt med innbyrdes skrå avstand l, blir tillatt grenseverdi Δ for avvik på høydeforskjell: +
+
+[#hoydekravkrav-img]
+.Formel for beregning av høydekravkrav
+image::images\Hoydekrav.jpg[Koordinatendringer,600,3000]
+
+Δ i ppm +
+l = skrå avstand i km (korteste avstand, ikke langs nivellement)
+
+Høydekravet bestemmes av valgt kvalitetsklasse i tabell *<<tab_Relative_Krav_Hoyde>>*. De tilhørende p og k vil da, sammen med avstanden l, definere tillatt grenseverdi Δ fra hvert enkelt fastmerke til alle andre fastmerker. Kravene gjelder også dersom det ikke er målt mellom fastmerkene, og de skal være tilfredsstilt for alle mulige forbindelser mellom fastmerker.
+
+:table-caption: Tabell
+[[tab_Relative_Krav_Hoyde]]
+.Parametre for å beregne tillatt grenseverdi Δ i høyde
+[width="75%",options="header"]
+[cols="3,2,2,5"]
+//[cols="2,4,2"]
+|===
+|Kvalitetsklasse|p (ppm)|k (mm)| Eksempel på aktuell bruk
+|1a|1|3| Presisjonsnivellement
+|2a|5|5| Nivellement o.l.
+|3a|10|10| Bygg- og anleggsnett
+|4a|20|20| Kartlegging i utbyggingsområder
+|5a|50|25| Diverse annet
+|===
+
+Eksempel:
+For skrå lengde l = 1 km blir tillatt grenseverdi Δ i klasse 2a:
+
+[#hoydeeksempel-img]
+image::images\Eksempel_høyde.jpg[Koordinatendringer,300,3000]
+
+som utgjør 9 mm over en avstand på 1 km.
+
+Beregning av tillatt grenseverdi for linjekombinasjon l = 1 km i de forskjellige kvalitetsklassene gir følgende resultat:
+
+:table-caption: Tabell
+.Tillatte grenseverdier når l = 1 km
+[width="75%",options="header"]
+[cols="4,1,1,1,1,1"]
+|===
+|Kvalitetsklasse|1a|2a|3a|4a|5a
+|Tillatt grenseverdi i ppm|4|9|17|35|87
+|Tillatt grenseverdi i mm|4|9|17|35|87
+|===
+
+====
+[[KRAV_11_Høyde]]
+.KRAV 11 Høyde (relativt) 
+////
+Ved bestemmelse av høyder til grunnlagspunkt etter denne standard skal det henvises til ei kvalitetsklasse for relative høydeavvik og/eller ei kvalitetsklasse for absolutte avvik. Beregnede verdier for ytre pålitelighet skal aldri overskide grensverdien i angitt kvalitetsklasse.
+////
+////
+Ved bestemmelse av høyder til grunnlagspunkt skal det henvises til ei kvalitetsklasse for relative høydeavvik og/eller ei kvalitetsklasse for absolutte avvik.  
+Kvalitetsklassa definerer grenseverdier som aldri skal overskrides. 
+////
+Når det stilles krav til relativ pålitelighet mellom grunnlagspunkt, skal det ved bestemmelse av høyde henvises til  to parametere *p* og *k* (eller en kvalitetsklasse) som definerer et høydeavvik som aldri skal overskrides.
+
+En pålitelighetsanalyse skal utføres  for å sannsynliggjøre at kravet er tilfredsstilt.
+====
+
+====	Krav til absolutt pålitelighet
+Med absolutt pålitelighet menes i denne standarden nærheten til sann verdi for målfunksjoner som kan utledes fra koordinaten(e) til ett fastmerke. +
+
+[[tab-Absolutte_nøyaktighetskrav]]
+.Kravklasse Absolutte pålitelighetskrav 
+[cols="1,4",options="header"]
+|===
+|Kravklasse	|Absolutte pålitelighetskrav
+|Avhengighet	|Koordinatbasert referansesystem
+.3+|Krav	|<<Krav-12-Grunnriss>>
+|<<Krav_13_Høyde>>
+|<<Krav-14-Beregningsdokumentasjon>>
+|===
+
+Absolutt pålitelighet er avvik fra noe som betraktes som kjent. Et slikt utgangspunkt kan være kjente fastmerker eller permanente geodetiske referansestasjoner.  
+
+===== Grunnrisskrav
+For å ivareta den absolutte påliteligheten i grunnriss anvendes kvalitetsmålet _2D punktavvik_. Med begrepet 2D punktavvik menes avvik fra det som betraktes som riktig posisjon.  
+
+:table-caption: Tabell
+.Tillatt grenseverdi for _2D punktavvik_
+////
+[width="100%",options="header"]
+[cols="1,2,4"]
+|===
+|Kvalitets-klasse|Tillatt grense-verdi (mm)| Eksempel på aktuell bruk
+|1b|5| Nasjonale nett
+|2b|10| Nasjonale nett
+|3b|15| Bygg- og anleggsnett
+|4b|20| Utgangspunkt for grensemålinger
+|5b|30| Div. annet
+|===
+////
+[width="75%",options="header"]
+[cols="4,1,1,1,1,1"]
+|===
+|Kvalitetsklasse|1b|2b|3b|4b|5b
+|Tillatt grenseverdi i mm|5|10|15|20|30
+|===
+
+====
+[[Krav-12-Grunnriss]]
+.KRAV 12 Grunnriss (absolutt)
+Når det stilles krav til absolutt pålitelighet,  skal det ved bestemmelse av grunnrisskoordinater henvises til  en grensverdi for punktavvik som aldri skal overskrides.
+
+En pålitelighetsanalyse skal utføres  for å sannsynliggjøre at kravet er tilfredsstilt. 
+====
+
+===== Høydekrav
+For å ivareta den absolutte nøyaktigheten i høyde anvendes kvalitetsmålet _høydeavvik_ (mål for avvik fra «sann» høyde).
+
+:table-caption: Tabell
+.Tillatt grenseverdi for _absolutt høydeavvik_
+////
+[width="100%",options="header"]
+[cols="1,5,4"]
+|===
+|Kvalitets-klasse|Tillatt grenseverdi (mm)| Eksempel på aktuell bruk
+|1b|10| Nasjonale nett
+|2b|15| Nasjonale nett
+|3b|20| Bygg- og anleggsnett
+|4b|30| Div. annet
+|5b|40| Div. annet
+|===
+////
+[width="75%",options="header"]
+[cols="4,1,1,1,1,1"]
+|===
+|Kvalitetsklasse|1b|2b|3b|4b|5b
+|Tillatt grenseverdi i mm|8|15|23|30|45
+|===
+
+Her kan kvalitetsklassene f.eks. 1a og 2b anvendes for nasjonale geodetiske nett, 3b for bygg- og anleggsnett og de andre kvalitetsklassene for grunnlagspunkt og -nett som har lavere krav til absolutt pålitelighet
+
+====
+[[Krav_13_Høyde]]
+.KRAV 13 Høyde (absolutt)
+Når det stilles krav til absolutt pålitelighet,  skal det ved bestemmelse av høyder henvises til  en grensverdi for høydeavvik som aldri skal overskrides.
+
+En pålitelighetsanalyse skal utføres for å sannsynliggjøre at kravet er tilfredsstilt.
+====
+
+=== Beregningsdokumentasjon
+====
+[[Krav-14-Beregningsdokumentasjon]]
+.KRAV 14 Beregningsdokumentasjon +
+Den utførende beregner skal utarbeide en dokumentasjon som er så omfattende at det er mulig å rekonstruere beregningene. Som et minimum må den inneholde:
+
+. Koordinatbasert referansesystem (CRS) som koordinatene refererer til
+. Alle fastmerker med koordinater, både gitte og beregnede
+. Alle målinger som inngår, med antatt nøyaktighet og vekting
+. Utjevningskorreksjoner på målingene og standardavvik til nybestemte koordinater
+. Anvendte signifikansnivå og øvrige parametre som påvirker kvalitetsmålene
+. Anvendt programvare med versjonsnummer
+. Dokumentasjon som sannsynliggjør at kvalitetsmålene tilfredstilles for valgt kvalitetsklasse
+====
+
+For å oppfylle punkt 7 over, utføres en pålitelighetsanalyse som viser mulige gjenværende feil og deres virkning på målfunksjonene, f. eks vinkel- og målestokksavvik.
+
+Med pålitelighetsanalyse menes i denne standard en analyse av hvordan feil, eller mulige feil, i observasjonsmaterialet kan påvirke resultatet. +
+
+I det relative tilfellet undersøkes hvordan feil kan endre koordinatene til tre fastmerker slik at vinkel- og målestokksavvik oppstår. I høyde undersøkes tilsvarende hvordan målefeil kan påvirke to fastmerker slik at høydeavvik mellom punktene oppstår. +
+
+I det absolutte tilfellet undersøkes hvordan feil kan endre koordinatene i det aktuelle fastmerket slik at posisjonen endres. +
+
+Det søkes etter det største avviket, det maksimale utslaget som en mulig gjenværende feil kan forårsake. Det er sannsynliggjort at kvalitetskravene etter denne standarden er tilfredsstilt hvis absoluttverdien av det største avviket er mindre enn tillatt grenseverdi Δ. For utledning av det teoretiske grunnlaget for pålitelighetsanalyse og vanlige signifikansnivå vises til vedlegg *B*, og for regneeksempler vises til vedlegg *C*
+
+En rapport fra et oppmålingsoppdrag bør i tillegg til beregningsdokumentasjonen inneholde informasjon om oppdraget, instrumentene og feltarbeidet. Avtales det utførelse av andre beregninger enn av punktenes kvalitetsmål, som denne standarden omhandler, må også de beregningene dokumenteres i rapporten. Et forslag til innhold i en rapport er 
+vist i vedlegg *E*.

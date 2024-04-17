@@ -1,0 +1,67 @@
+:stem: latexmath  
+:eqnums:
+
+=== Utledning av formel for tillatt vinkel- og målestokksavvik
+
+Tillatt grense for avvik må avhenge av avstanden til nabopunkt. Det er derfor nærliggende å benytte et ppm-mål, stem:[p].  Når avstandene til nabopunktene blir liten vil ppm-målet alene gi tillatte verdier som nærmer seg null. Vi innfører derfor en tilleggskomponent som bestemmes ut fra akseptabel tilfeldig feil i punktenes koordinater ved å gi alle koordinatene standardavviket k.
+
+[#prisippskisse-img]
+.Tre punkt som alle har en tilfeldig feil stem:[k] i alle retninger
+image::images\prinsipp_skisse.jpg[prisippskisse,200,7500]
+
+
+
+
+
+
+
+
+
+
+
+Med støtte i figur *12*  kan vi utlede standardavviket stem:[σ_{\phi}] til vinkelen stem:[\phi]. Vi antar at standardavviket er stem:[k] i alle retninger i alle punktene 1 – 3, og for å gjøre utledninga litt enklere tenker vi oss et koordinatsystem med x-aksen sammenfallende med siden stem:[s_{1}]. Vinkelen stem:[\phi] kan uttrykkes som stem:[retning_{1-2}] – stem:[retning_{1-3}] og er en funksjon av koordinatene stem:[x_{1}],stem:[x_{2}],stem:[x_{3}],stem:[y_{1}],stem:[y_{2}] og stem:[y_{3}]. 
+
+For å finne endringa av vinkelen stem:[\phi] ved små endringer av koordinatene, kan en partiellderivere denne funksjonen med hensyn til alle seks koordinatene. Men en kan også se det direkte fra figuren over idet en angir stem:[\phi] i radianer:
+
+[stem,differensial=formel 1]
+++++
+\begin{equation}\label{differensial}
+ d\phi=-\frac{1}{s_{1}}dy_{3} + \left(\frac{1}{s_{1}}-\frac{1}{s_{2}}cos(\phi)\right)dy_{1} + \frac{1}{s_{2}}sin(\phi)dx_{1} - \frac{1}{s_{2}}sin(\phi)dx_{2} + \frac{1}{s_{2}}cos(\phi)dy_{2}
+\end{equation}
+++++
+
+Vi bruker feilforplantningsloven for å finne standardavviket stem:[σ_{\phi}] til vinkelen stem:[\phi]:
+
+[stem,Std_Avvik_Vinkel=formel 2]
+++++
+\begin{equation}\label{Std_Avvik_Vinkel}
+ σ_{{\phi}}^{2}=k^{2}\left( \frac{1}{s_{1}^{2}} + \frac{1}{s_{1}^{2}} -2\frac{1}{{s_{1}}{s_{2}}}cos(\phi) + \frac{1}{s_{2}^{2}}cos^{2}(\phi)) + \frac{1}{s_{2}}sin^{2}(\phi) +  \frac{1}{s_{2}}sin^{2}(\phi) + \frac{1}{s_{2}}cos^{2}(\phi)  \right)
+\end{equation}
+++++
+
+Ved å samle sammen til en brøk får en:
+
+[stem,Std_Avvik_Vinkel_brok=formel 3]
+++++
+\begin{equation}\label{Std_Avvik_Vinkel_brok}
+ σ_{{\phi}}^{2}=k^{2}\frac{2s_{2}^{2}-2cos(\phi)s_{1}s_{2} + 2s_{1}^{2}}{s_{1}^{2}s_{2}^{2}} = k^{2}\frac{s_{1}^{2} + s_{2}^{2} + (s_{1}^{2} + s_{2}^{2} -2cos(\phi)s_{1}s_{2})}{s_{1}^{2}s_{2}^{2}}
+\end{equation}
+++++
+
+Og til slutt ved å anvende cosinussetningen på siste parentes i telleren:
+[stem,Std_Avvik_Vinkel_slutt=formel 4]
+++++
+\begin{equation}\label{Std_Avvik_Vinkel_slutt}
+ σ_{\phi}^{2}=k^{2}\frac{s_{1}^{2} + s_{2}^{2} + s_{3}^{2}}{s_{1}^{2}s_{2}^{2}}
+\end{equation}
+++++
+
+Samlet tillatt grense Δ blir da:
+[stem,Std_Avvik_Vinkel_total=formel 5]
+++++
+\begin{equation}\label{Std_Avvik_Vinkel_total}
+ \nabla=\sqrt{p^{2}+k^{2}\frac{s_{1}^{2} + s_{2}^{2} + s_{3}^{2}}{s_{1}^{2}s_{2}^{2}}}
+\end{equation}
+++++
+
+Tilsvarende utledning kan gjøres for målestokksforholdet ved at stem:[avstand_{1-2}] og stem:[avstand_{1-3}] uttrykkes ved de samme koordinatene som over og differensieringa gir et målestokksavvik. 	

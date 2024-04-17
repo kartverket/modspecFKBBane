@@ -1,0 +1,542 @@
+:stem: latexmath  
+:eqnums:
+*absolutt nøyaktighet* +
+nøyaktighet i forhold til en definert _geodetisk referanseramme_ +
+Kilde: Standarden "Geodatakvalitet" fra 2015 +
+
+*absolutt pålitelighet* +
+se _ytre pålitelighet_
+
+*affint koordinatsystem* +
+koordinatsystem med rette akser som ikke nødvendigvis er perpendikulære i forhold til hverandre +
+Kilde: ISO 19111:2019 +
+Merknad 1: Gjelder for det euklidske rom, dvs ikke for det «krumme rom» +
+
+*anleggsdatum* +
+det samme som  _lokalt datum_ +
+
+*avbildet CRS* +
+et _koordinatbasert referansesystem_ som er avledet fra et _geografisk CRS_ ved en kartprojeksjon +
+Kilde: ISO 19111:2019 +
+Merknad 1:Kan være to- eller tre-dimensjonalt. Dimensjonen er den samme som i det _geografiske CRS_ det ble avledet fra +
+Merknad 2:Geodetisk bredde og lengde blir projisert til nord- og østkoordinat i kartplanet, og i det tre-dimensjonale tilfellet blir den ellipsoidiske høyden uendret
+
+*CRS* +
+samme som _koordinatbasert referansesystem_ +
+Kilde: ISO 19111:2019 +
+Merknad: Forkortelse for Coordinate Reference System +
+
+*CS* +
+samme som _koordinatsystem_ +
+Kilde: ISO 19111:2019 +
+Merknad: Forkortelse for Coordinate System +
+
+*datum* +
+samme som _referanseramme_ +
+Kilde: ISO 19111:2019 +
+Merknad:
+
+*deformasjon* +
+feilaktig form på et objekt eller en punktgruppe +
+Kilde: Standarden "Geodatakvalitet" fra 2015 +
+Merknad: I utjevningsregningen brukt om mulige gjenværende grove feils virkning på utjevnings–
+resultatet (koordinater, høydeforskjeller, retninger, avstander, vinkler eller målestokker). Bestemmes gjerne i forbindelse med _pålitelighetsanalyse_ i tilslutning til beregningene. 
+
+*dynamisk referanseramme* +
+_dynamisk datum_ +
+ei referanseramme der de definerende parameterne inkluderer endring med tiden +
+Kilde: ISO 19111:2019 +
+Merknad: De definerende parameterne som endres med tiden er vanligvis et sett av koordinater +
+Merknad: De ulike versjonene av ITRF og WGS er _dynamiske referanserammer_ +
+
+*ellipsoide* +
+_referanseellipsoide_ +
+_omdreiningsellipsoide_ +
+_rotasjonsellipsoide_ +
+I geodesi: en geometrsk referanseflate i form av en ellipse som er rotert om en av sine hovedakser +
+Kilde: ISO 19111:2019 +
+Merknad 1: I geodesien er ellipsen rotert om polaksen, som kortaksen sammenfaller med. Dette resulterer i en flattrykt ellipsoide med like akser i ekvatorplanet og sentrum sammenfallende med referansrammens origo +
+Merknad 2: I matematikken kan alle de tre aksene ha ulik lengde  + 
+Merknad 3: Gjelder for det tredimensjonale euklidske rom, dvs ikke for det «krumme rom»  
+
+*ellipsoidisk CS* +
+_geodetisk koordinatsystem_ +
+et koordinatsystem der posisjoner er angitt som _geodetisk bredde_ og _-lengde_, og i det tredimensjonale tilfellet også ellipsoidisk høyde +
+Kilde: ISO 19111:2019 +
+
+*ellipsoidisk høyde* +
+avstand fra referanseellipsoiden, målt langs ellipsoidenormalen +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad 1: Positiv utenfor ellipsoiden, negativ innenfor +
+Merknad 2: Symboliseres vanligvis med liten h, til forskjell fra _tyngderelatert høyde_ som bruker stor H +
+
+*ellipsoidiske koordinater* +
+koordinater  i et geografisk CRS +
+Merknad : Geodetisk lengde og bredde er ellipsoidiske koordinater og en type av geografiske koordinater
+
+*EPSG-kode* +
+en kode i et åpent tilgjengelig register over geodetiske _datum_, _koordinatbaserte referensesystem_, _ellipsoider_, koordinat-transformasjoner og måleenheter opprettet av European Petroleum Survey Group +
+
+*fastmerke* +
+varig merket grunnlagspunkt +
+
+*fundamentalpunkt* +
+utgangspunkt i et definert _vertikalt_ eller _klassisk datum_ +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+
+*fysiske høyder* +
+samme som _tyngderelaterte høyder_ +
+
+*geodetiske koordinater* +
+koordinater i et geodetisk CRS +
+Merknad 1: 3-dimensjonale jordsentriske kartesiske koordinater er eksempel på _geodetisk koordinater_ + 
+Merknad 2:  Geodetisk lengde og bredde er ikke geodetiske koordinater, men koordinater i et geografisk CRS og følgelig ellipsoidiske koordinater 
+
+*geodetisk bredde* +
+vinkelen fra ekvatorplanet til normalen gjennom et gitt punkt på ellipsoiden +
+Kilde: ISO 19111:2019 +
+Merknad 1  Positive verdier nordover +
+Merknad 2 Utgjør sammen med _geodetisk lengde_ geografiske koordinater.
+
+*geodetisk CRS * +
+et tredimensjonalt _koordinatbasert referansesystem_ basert på ei _geodetisk referanseramme_ som har enten et tredimensjonalt _kartesiske koordinatsystem_ eller et _sfærisk koordinatsystem_ +
+Kilde: ISO 19111:2019 +
+Merknad 1: Gjelder også der de tredimensjonale koordinatene er angitt med kulekoordinater +
+Merknad 2: I ISO 19111:2019 kalles et _CRS_ som er basert på ei _geodetisk referanseramme_ og angitt i et _ellipsoidisk koordinatsystem_ for et _geografisk CRS_ +
+Merknad 3 I Norge kalles et _geodetisk CRS_ ofte for et _geosentrisk CRS_ 
+
+*geodetisk lengde* +
+vinkel fra nullmeridianplanet til meridianplanet gjennom et gitt punkt +
+Kilde: ISO 19111:2019 +
+Merknad 1: Positive verdier østover +
+Merknad 2: Utgjør sammen med _geodetisk bredde_ geografiske koordinater +
+
+*geodetisk referanseramme* +
+_referanseramme_ eller _datum_ som beskriver et to- eller tredimensjonalt koordinatsystems forhold til jordkroppen +
+Kilde: ISO 19111:2019 +
+Merknad: Omfatter både moderne terrestriske referanserammer og klassiske geodetiske datum
+
+*geodetisk stasjon* +
+målestasjon som jevnlig eller kontinuerlig samler data til geodetiske formål og har kjente koordinater eller verdier som det kan refereres til +
+Merknad: Referansestasjonene i posisjonstjenester, f. eks. CPOS, er geodetiske stasjoner og kalles PGS (permanent geodetisk stasjon) eller CORS (Continuously Operating Reference Station).
+
+*geografisk bredde* +
+samlebetegnelse på geodetisk og astronomisk bredde +
+Kilde: Standarden "Koordinatbasert referansesystem" fra 2009 +
+Merknad: Se _geografiske koordinater_
+
+*geografisk CRS * +
+koordinatbasert refereransesystem som har ei _geodetisk referanseramme_ og et _ellipsoidisk koordinatsystem_ +
+Kilde: ISO 19111:2019 +
+
+*geografiske koordinater* +
+samlebetegnelse på geodetisk eller astronomisk lengde og bredde +
+Kilde: Standarden "Koordinatbasert referansesystem" fra 2009 +
+Merknad 1: Astronomisk bredde og lengde er ikke bestemt fra ellipsoidenormalen, som i det geodetiske tilfellet, men fra tangenten til den krumme loddlinjen i punktet
+
+*geografisk lengde* +
+samlebetegnelse på geodetisk og astronomisk lengde +
+Kilde: Standarden "Koordinatbasert referansesystem" fra 2009 +
+Merknad: Se _geografiske koordinater_
+
+*geoide* +
+potensialflate i jordens tyngdefelt, normalt på tyngdekrafens retning og som best samsvarer med _middelvann_ enten lokalt, regional eller globalt +
+Kilde: ISO 19111:2019 +
+
+*geoidemodell*
+modell som angir hvor høyt _geoiden_ ligger i forhold til en valgt _ellipsoide_ +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad: Tilsvarende får en for _kvasigeoiden_ en _kvasigeoidemodell_  
+
+*grov feil* +
+feil som er vesentlig større enn de tilfeldige avvikene +
+Kilde: Standarden "Geodatakvalitet" fra 2015 +
+
+*grovfeilssøk* +
+metode for å lokalisere grove feil i et observasjonsmateriale +
+Kilde: Standarden "Geodatakvalitet" fra 2015 +
+
+*grunnlagsnett* +
+nett av _grunnlagspunkt_ +
+Merknad: Tilsvarer det engelske begrepet "Control network"
+
+*grunnlagspunkt* +
+punkt som danner utgangspunkt for bestemmelse av grunnrisskoordinater, høyde eller tyngde +
+Merknad 1: Inkluderer geodetisk stasjon, som ikke trenger være varig merket +
+Merknad 1: Tilsvarer det engelske begrepet "Control point" +
+
+*høyde over ellipsoiden* +
+det samme som _ellipsoidisk høyde_ +
+
+*høydereferansemodell* +
+modell for differansen mellom _fysiske høyder_ i en _vertikal referanseramme_ og ellipsoidiske høyder i en _geodetisk referanseramme_ +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad 1: Vanligvis beregnes modellen ved at en
+_geoidemodell_ eller _kvasigeoidemodell_ tilpasses punkter der høyder av de to aktuelle typer er kjent. +
+Merknad 2: Kalles også href-modell. +
+Merknad 3: en _høydereferansemodell_ er en type _separasjonsmodell_ +
+
+*indre pålitelighet* +
+_kontrollerbarhet_ +
+et mål for hvor godt hver enkelt observasjon i et datasett er kontrollert av de øvrige observasjonene i datasettet +
+Merknad 1: I geodesi og landmåling uttrykkes indre pålitelighet vanligvis som _største mulige gjenværende feil_ +
+Merknad 2: Observasjonenes grad av overflødighet, _redundans_, er også et mål for indre pålitelighet
+
+*ingeniørdatum* +
+det samme som _lokalt datum_ +
+
+*intraplatebevegelse* +
+posisjonendringer som gjelder for en region av et kontinent +
+Merknad 1: posisjonsendringer som gjelder hele kontinentet kalles plate- eller kontinentalbevegelse. +
+Merknad 2: I Norden er posisjonsendringer som skyldes postglasial landhevning et eksempel på intraplatebevegelse. +
+
+*konformitet* +
+oppfyllelse av krav +
+Kilde: ISO 19105:2022 +
+
+*konformitetsklasse* +
+klasse som inneholder alle _konformitetskrav_ +
+Kilde: ISO 19105:2022 +
+
+*konformitetskrav* +
+krav som må oppfylles for å oppnå _konformitet_ med en spesifikasjon eller standard. +
+Kilde: ISO 19105:2022 +
+Merknad: Konformitetskrav i en standard benyttes ofte som et hjelpemiddel til å spesifiere krav som må overholdes for at bruk eller implementasjon er i samsvar med standarden, dvs om en oppfyller de krav standarden stiller.
+
+*konformitetstest* +
+spesifisert test for å avgjøre om en eller flere  _konformitetskrav_ er oppfylt +
+
+*kartesisk CS* +
+_koordinatsystem_ som gir posisjoner til punkter i forhold til _n_ gjensidig perpendikulære rette akser som alle har samme måleenhet +
+Kilde: ISO 19111:2019 +
+Merknad 1: Gjelder for det euklidske rom, dvs ikke for det «krumme rom» +
+Merknad 2: I denne standarden er _n_ lik 2 eller 3 +
+Merknad 3: Et kartesisk koordinatsystem er et spesialtilfelle av et affint koordinatsystem +
+
+*kartprojeksjon*
+_koordinatkonvertering_ fra et ellipsoidisk koordinatsystem til planet +
+Kilde: ISO 19111:2019 +
+
+*klassisk datum* +
+nasjonalt eller regionalt _datum_ som realiseres på tradisjonell måte ved at _fundamentalpunktets_ posisjon og nettets orientering mot nord bestemmes med astronomiske målinger +
+Merknad: NGO1948 og ED50 er eksempel på klassiske datum +
+
+*koordinatbasert referansesystem* +
+_CRS_ +
+_koordinatsystem_ som er knyttet til den virkelige verden gjennom et _datum_ +
+Kilde: ISO 19111:2019 +
+Merknad 1: _Geodetiske_ og _vertikale datum_ er referert til som _referanserammer_ +
+Merknad 2: For _geodetiske_ og _vertikale datum_, vil _koordinatsystemet_ være knyttet til jordkloden. Ved planetariske anvendelser kan _geodetiske_ og _vertikale datum_ være anvendt på andre himmellegemer.
+
+*koordinatkonvertering* +
+koordinatoperasjon som endrer koordinater i et _koordinatbasert referansesystem_ (CRS) til et annet som er baseret på det samme _datum_ +
+Kilde: ISO 19111:2019 +
+Merknad: En koordinatkonvertering bruker parametre med spesifiserte parametre. +
+Eksempel: En _kartprojeksjon_ er et eksempel på  koordinatkonvertering 
+
+*kontrollerbarhet* +
+det samme som _indre pålitelighet_ +
+
+*koordinatsystem* +
+_CS_ +
+sett av matematiske regler som spesifiserer hvordan punkt skal tildeles koordinater +
+Kilde: ISO 19111:2019 +
+
+*kvasigeoide*
+flate som ligger i avstanden (H~ell~–H~norm~) over ellipsoiden og (H~ort~–H~norm~) over geoiden, der H~ell~ er _ellipsoidisk høyde_, H~norm~ er _normalhøyde_ og H~ort~ er _ortometrisk høyde_ +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad: Avsetter man et punkts normalhøyde fra punktet nedover langs loddlinjen i normaltyngdefeltet, kommer man til
+kvasigeoiden. Kvasigeoiden er, til forskjell fra geoiden, ingen potensialflate og har ingen fysisk forankring.
+
+*kvasigeoidemodell*
+se _geoidemodell_
+
+*Landsnettet* +
+overordnet nett av fastmerker som  Kartverket vedlikeholder og har ansvaret for +
+Merknad 1: Historisk var koordinatene i _Landsnettet_ en fortetting av koordinatene i _Stamnettet_, men ved oppdateringer i høyde i 2015 og grunnriss i 2018 er ikke denne koblinga ivaretatt +
+Merknad 2: I dag er _Landnettet_ en samlebetegnelse på både _Stamnettet_, det opprinnelige _Landsnettet_ og nye overordnede grunnlagspunkt som er etablert +
+Merknad 3: Kartverkets _trekantpunkt_ er ikke en del _Landsnettet_
+
+*loddavvik* +
+vinkel fra innoverrettet ellipsoidenormal gjennom et punkt til nedoverrettet loddlinje i punktet +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad - Loddavviket angis vanligvis med en nord-sør-komponent (ξ), positiv mot sør, og en øst-vest-komponent (η), positiv mot
+vest.
+
+*lokalt CRS* +
+koordinatbasert referansesystem basert på et _lokalt datum_ + 
+Kilde: ISO 19111:2019 +
+Eksempel 1: System for å identifisere relative posisjoner i en omkrets av noen få km fra referansepunktet for eksempel på en byggeplass eller i en bygning +
+Eksempel 2: CRS lokalt på et objekt i bevegelse. For eksempel et skip eller romskip +
+Eksempel 3: Internt CRS i et bilde.  
+
+*lokalt datum* +
+_datum_ som beskriver et _koordinatsystems_ forhold til en lokal referanse +
+Kilde: ISO 19111:2019 +
+Merknad 1: _lokalt datum_ ekskluderer både _geodetiske_ og _vertikale referanserammer_ +
+Merknad 2: Også kalt _anleggsdatum_ og _ingeniørdatum_ 
+
+*middelvann* +
+gjennomsnittlig høyde av sjøens overflate på et sted over en periode på 19 år +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad 1: Beregnes som gjennomsnittet av vannstandsobservasjoner over 19 år ved de permanente vannstandsmålerne og modelleres mellom disse. Perioden endres ved ny beregning og må derfor alltid oppgis. Eksempelvis er  middelvann (1996-2014) det gjeldende, offisielle middelvannet i 2023. +
+Merknad 2: Gjeldene middelvann brukes ofte for å fremheve at dette er et etablert, offisielt referansenivå som ikke må forveksles med midlere vannstand for en vilkårlig periode et sted .
+
+*multippel t-test* +
+mange _t-tester_ som samlet skal ha en gitt feilslutningssannsynlighet +
+
+*målenøyaktighet* +
+målingenes _nøyaktighet_ +
+Kilde: ISO 19111:2019 +
+
+*målestokksavvik* +
+forskjell i avvik fra sann verdi mellom en avstand og en annen. Avviket angis med forholdstall +
+Merknad: Vanlig forholdstall er ppm, (parts per million) +
+
+*målestokksdeformasjon* +
+deformasjon som mulige gjenværende feil kan forårsake i form av _målestokksavvik_ til to nabopunkt ved en nettutjevning +
+Merknad 1: Uttrykker differansen i  [.underline]#radiell# deformasjonen i ppm fra et punkt til to nabopunkt +
+Merknad 2: Se også _målestokksavvik_ og _vinkeldeformasjon_ +
+
+*måleusikkerhet* +
+det samme som _målenøyaktighet_ +
+
+*målfunksjon* +
+en funksjon av to eller flere variable som uttrykker kriteriet som måloppnåelsen skal vurderes etter +
+Eksempel: En vinkel beregnet som en funksjon av tre punkters koordinater kan være en målfuksjon for  grunnlagsnettets kvalitet
+
+*nabonøyaktighet* +
+nøyaktigheten for stedsangivelsen til et objekt i forhold til nærliggende stedfestede objekter +
+Kilde: Standarden "Geodatakvalitet" fra 2015 +
+Merknad: Nabonøyaktighet gir uttrykk for den lokale nøyaktigheten, men sier ikke noe om nøyaktigheten i forhold til overordnet geodetisk referanseramme eller i forhold til fjerntliggende objekter. Nabonøyaktigheten uttrykkes vanligvis ved standardavvik. Nabonøyaktigheten blir i enkelte sammenhenger kalt relativ nøyaktighet (som motsats til absolutt nøyaktighet). +
+
+*normalhøyde*
+høyde over _kvasigeoiden_, målt langs normaltyngdefeltets krumme loddlinje +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad 1: Kan beregnes som stem:[C/g~'~] der stem:[C] er geopotensialtallet i punktet det skal beregnes _ortometrisk høyde_ for, og stem:[g~'~] er
+midlere tyngdeakselerasjon langs normaltyngdefeltets loddlinje (i fri
+luft) mellom geoiden og punktet. +
+Merknad 2: Fordelen med normalhøyde er at man ikke trenger å gjøre antakelser om tyngdefeltet i massene under punktet. +
+Merknad 3: Er i Norge litt mindre enn ortometrisk høyde. I havnivå er normalhøyde og _ortometrisk høydene_ like, men forskjellen øker med 1 cm pr 100 m over havet. +
+MERKNAD 4 - Se også _ortometrisk høyde_.
+
+*nøyaktighet* +
+mål for en verdis nærhet til sin sanne verdi eller til det man antar er den sanne verdi +
+Kilde: Standarden "Geodatakvalitet" fra 2015 +
+////
+Merknad: nøyaktigheten kan være gitt som standardavvik, sant avvik, _ytre pålitelighet_  e.l. 
+////
+
+*omdreiningsellipsoide* +
+se _ellipsoide_ +
+
+*ortometrisk høyde*
+høyde over geoiden, målt langs den krumme loddlinjen i jordens tyngdefelt +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad 1: Kan beregnes som stem:[C/g] der stem:[C] er geopotensialtallet i punktet det skal beregnes ortometrisk høyde for, og stem:[g] er
+midlere tyngdeakselerasjon langs loddlinjen (inne i massene) mellom geoiden og punktet. Kalles gjerne "høyde over havet". +
+Merknad 2: Se også normalhøyde.
+
+*permanent geodetisk stasjon* +
+se _geodetisk stasjon_ +
+Merknad: En permanent geodetisk stasjon (PGS) består typisk av et geometrisk referansepunkt, en GNSS antenne, en mottaker, strømtilførsel og kommunikasjonsutstyr. Formålet er å kontinuerlig samle GNSS-data som videresendes til et kontroll- og analysesenter
+
+*punktavvik* +
+et punkts avstand fra sann posisjon +
+Merknad: En skiller mellom 1D-, 2D- og 3D-punktavvik for avvik i henholdsvise høyde, grunnriss eller høyde og grunnriss samlet.   
+
+*projeksjonssone* +
+et definert område der kartprojeksjonen gjøres gjeldende +
+Merknad 1: I praksis avgrenses projeksjonsonene av administrative og praktiske grenser, selv om definisjonen er strengere.
+Merknad 2: Ved transversal mercator-projeksjon et definert lengdeintervall på hver side av en berøringsmeridian .    
+
+*punktdeformasjon* +
+deformasjon i form av _punktavvik_ som mulige gjenværende feil kan forårsake 
+ved en nettutjevning +
+
+*pålitelighet* +
+se _pålitelighetsanalyse_, +
+_indre pålitelighet_,  +
+_ytre pålitelighet_  +
+
+*pålitelighetsanalyse* +
+en beregning av _indre_ og/eller _ytre pålitelighet_ +
+
+*redundans* +
+summen av alle _redundansandeler_ +
+
+*redundansandel* +
+diagonalelementene i redundansmatrisa +
+Merknad 1: redundansmatrisa kan uttrykkes som stem:[I-A(A^{T}WA)^{-1}A^{T}W] der stem:[I] er identitetsmatrisa og stem:[A] og stem:[W] er henholdsvis designmatrise og vektsmatrise ved nettutjevning etter minste kvadraters metode. +
+Merknad 2: Uttrykker i hvor stor grad en observasjon kontrolleres av andre observasjoner +
+Merknad 3: For ukorrelerte observasjoner er redundansandelen mellom 0 og 1. +
+Merknad 4: Summen av redundansandelene er i en nettutjevning lik antall overbestemmelser +
+
+*referanseellipsoide* +
+se _ellipsoide_ +
+
+*referanseramme* +
+parametre eller sett av parametre som realiserer origoposisjon, målestokk og orientering til et _koordinatsystem_ +
+Kilde: ISO 19111:2019 +
+Merknad: Det samme som _datum_ +
+
+*referansesystem* +
+se _terrestrisk referansesystem_ +
+
+*relativ nøyaktighet* +
+se _nabonøyaktighet_
+
+*relativ pålitelighet* +
+se _ytre pålitelighet_ +
+
+*rotasjonsellipsoide* +
+se _ellipsoide_ +
+
+*sanntidstjeneste* +
+posisjonstjeneste som forbedrer nøyaktigheten i globale satellittnavigasjonssystemer ved distribusjon av korreksjonsdata i sann eller nær sann tid +
+Merknad: Kartverkets CPOS-tjeneste er en sanntidstjeneste +
+
+*sann verdi* +
+en størrelse uten feil +
+Merknad: Midlede eller utjevnede målinger er et beregnet estimat på den sanne verdi
+
+*separasjonsmodell* +
+modell som beskriver forskjellen mellom to referansenivå +
+
+*sfærisk koordinatsystem* +
+to- eller tredimensjonalt _koordinatsystem_ som angir posisjonen med to vinkler i forhold til hvert sitt plan og (i det tredimensjonale tilfellet) en  avstand +
+Kilde: ISO 19111:2019 +
+Merknad 1: Må ikke forveksles med et forenklet _ellipsoidisk koordinatsystem_ der _ellipsoiden_ er erstattet med ei kule 
+Merknad 2: Gjelder for det euklidske rom, dvs ikke for det «krumme rom» +
+Merknad 3: Koordinatene i et _sfærisk koordinatsystem_ kalles kulekoordinater +
+Merknad 4: et to-dimensjonalt _sfærisk koordinatsystem_ kan benyttes for å angi himmellegemer på ei "himmelflate" +
+
+*sjøkartnull* +
+referansenivå for dybder i sjøkartene og høyder i tidevannstabeller +
+Kilde: Standarden "Norges offisielle høydesystemer og referansenivåer" fra 2009 +
+Merknad 1: I Norge ligger nivået i en avstand Z0 under _middelvann_. +
+Merknad 2: Også kalt referansenivå for dybder. Eldre betegnelse kartnull.
+
+*sone* +
+se _projeksjonssone_ +
+
+*Stamnettet* +
+tidligere overordnet nett av _fastmerker_ i Norge, etablert av Statens kartverk i forbindelse med overgang til EUREF89 +
+Kilde: Standarden "Koordinatbasert referansesystem" fra 2009 +
+Merknad: Avløste det tidligere 1. ordens trekantnettet. Har sidelengder på ca. 20 km i bebygde strøk. Kartverket er ansvarlig for vedlikehold og forvaltning av Stamnettet +
+
+*statisk CRS* +
+_koordinatbasert referansesystem_ som har ei statisk _referanseramme_ +
+Kilde: ISO 19111:2019 +
+Merknad 1: Koordinater til punkt på eller nær jordens overflate som refererer til et statisk CRS, endres ikke med tiden +
+Merknad 2: Metadata til et datasett som refererer til et statisk CRS trenger [.underline]#ikke# informasjon om referansetidspunkt +
+
+*statisk referanseramme* +
+_statisk datum_ +
+_referanseramme_ der definerende parametere ekskluderer ei tidsutvikling +
+Kilde: ISO 19111:2019 +
+Merknad: EUREF89 er ei _statisk referanseramme_ +
+
+*største mulige gjenværende feil* +
+et statistisk anslag av den maksimale feilen i en observasjon +
+Merknad 1: Oftest basert på utjevning av et observasjonsmateriale etter minstre kvadrates metode og etter at påviselige _grove feil_ er fjernet ved _grovfeilssøk_ +
+Merknad 2: Hvis observasjonens feil er estimert i utjevningen, kan en på bakgrunn av feilestimatet med tilhørende standardavvik sette opp et konfidensintervall. _Største mulige gjenværende feil_ blir da største tallverdi i dette intervallet.
+Merknad 3: Se _indre pålitelighet_ +
+
+*terrestrisk referansesystem* +
+_TRS_ +
+sett av konvensjoner som definerer origo, målestokk, orientering og tidsutvikling til et romlig _referansesystem_ som roterer med jordkroppen i sin daglige bevegelse i verdensrommet +
+Kilde: ISO 19111:2019 +
+Merknad 1: Det abstrakte konseptet _terrestrisk referansesystem_ er virkeliggjort gjennom ei _terrestrisk referanseramme_, som vanligvis består av et sett fysiske punkter med presist bestemte koordinater og med deres eventuelle hastigheter. I ISO 19111:2019 er _terrestrisk referanseramme_ og _geodetisk referanseramme_ det samme +
+
+*tillatt grenseverdi* +
+definert verdi som aldri skal overskrides +
+Merknad: For å sannsynliggjøre at overskridelse ikke har skjedd, kan en for eksempel utføre en  _pålitelighetsanalyse_ +
+
+*toposentrisk CRS* +
+tredimensjonalt _kartesisk_ _koordinatbasert referansesystem_ med origo på jordens overflate +
+Merknad: Vanligvis med en nordakse, en østakse og  en vertikalakse, som er normal til _ellipsoiden_ eller _geoiden_
+
+*trekantpunkt* +
+lavere ordens fastmerker som normalt er bestemt med vinkel- og avstandsmåling +
+
+*t-test* +
+en statistisk hypotesetest basert på t-fordelinga + 
+Kilde: Wikipedia 01.11.2023 +
+Merknad: Brukes for eksempel i utjevningsberegninger etter minste kvadraters metode for å avgjøre om en estimert feil er signifikant forskjellig fra null. +
+
+*tyngderelatert høyde* +
+høyde som avhenger av jordens tyngdefelt +
+Kilde: ISO 19111:2019 +
+Merknad 1: Normalhøyder og ortometriske høyder er eksempel på _tyngderetaterte høyder_ +
+Merknad 2: Kalles også _fysiske høyder_ +
+Merknad 3: NN2000 har tyngderelaterte normalhøyder +
+
+*vertikal referanseramme* +
+_vertikalt datum_ +
+ei _referanseramme_ som beskriver _tyngderelaterte høyder_ eller dybder sitt forhold til jordkroppen +
+Kilde: ISO 19111:2019 +
+Merknad 1: Tidligere var vertikale referanserammer ofte relatert til _middelvann_. NN2000 er ikke relatert til _middelvann_ +
+Merknad 2: Vertikale datum inkluderer sounding datum (brukt til hydrografiske forhold), og høydene blir da negative og kalt dybder (med positivt fortegn) +
+Merknad 3: _Ellipsoidiske høyder_ er relatert til et tredimensjonalt _geografisk koordinatbasert referanseramme_  +
+
+*vertikalt CRS* +
+et endimensjonalt _koordinatbasert referansesystem_ basert på ei _vertikal referanseramme_ +
+Kilde: ISO 19111:2019 +
+
+*vertikalt CS* +
+et endimensjonalt _koordinatsystem_ for tyngderelaterte høyder eller dybder +
+Kilde: ISO 19111:2019 +
+
+*vinkelavvik* +
+en vinkels forskjell fra "sann verdi" +
+
+*vinkeldeformasjon* +
+deformasjon som mulige gjenværende feil kan forårsake i form av _vinkelavvik_ ved en nettutjevning +
+Merknad 1: Uttrykker differansen i [.underline]#tangentiell# deformasjonen i ppm fra et punkt til to nabopunkt +
+Merknad 2: Se også _vinkelavvik_ og _målestokksdeformasjon_ +
+
+*ytre pålitelighet* +
+mulige gjenværende grove feils største virkning på utjevnede størrelser (f.eks. koordinater) eller funksjoner av disse som: vinkel, avstandsforhold og høydeforskjell. Involveres koordinater fra flere ulike punkt, kalles ytre pålitelighet _relativ pålitelighet_. Er bare ett punkt involvert kalles det _absolutt pålitelighet_. +
+
+
+=== Forkortelser
+// Forkortelser brukt i standarden
+[cols="25,~"]
+|===
+|CS|Coordinate system 
+|CRS|Coordinate Refererence System 
+|CORS|Continuously Operating Reference Station
+|CPOS|Cm POSisjonstjeneste
+|EPSG|European Petroleum Survey Group
+|ETRF|European Terrestial Referance Frame
+|ETRS|European Terrestial Referance System
+|EUREF|EUropean REfenrence Frame
+|EVRS|European Vertical Referance System
+|GNSS|Global Navigation Satellite System
+|GRS80|Geodetic Reference System 1980
+|HAT|Høyeste Astronomiske Tidevann
+|IGS|International GNSS Service
+|IHO|International Hydrographic Organization
+|ITRF|International Terrestial Referance Frame
+|ITRS|International Terrestial Referance System
+|LAT|Laveste Astronomiske Tidevann
+|NTM|Norsk Transversal  Mercator
+|NN2000|Normalnull 2000
+|NKG|Nordisk Kommisjon for Geodesi
+|PGS|Permanent Geodetisk Stasjon
+|PPM|Parts Per Million
+|PROJ|PROJections 
+|RF|Reference Frame
+|TRF|Terrestrial Referance Frame
+|TRS|Terrestrial Referance System
+|UTM|Universial Transverse Mercator
+|===
+
+
+
+
+
+
+
+
