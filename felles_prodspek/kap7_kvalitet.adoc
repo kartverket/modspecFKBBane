@@ -11,7 +11,6 @@ FKB vil ofte også inneholde data fra andre datakilder, for eksempel data etable
 Prinsippet er at fullstendighet prioriteres foran nøyaktighet og FKB-data for et område vil derfor bestå av data med varierende grad av kvalitet. 
 
 .krav/FKB-Bane/datakvalitet
-[#krav-nøkkelord-skal]
 ====
 Alle data skal være kodet med datafangstdato og posisjonskvalitet slik at det er mulig å vurdere datakvaliteten til det enkelte dataobjekt.
 ====
