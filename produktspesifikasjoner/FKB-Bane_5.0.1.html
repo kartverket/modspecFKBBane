@@ -489,10 +489,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_supplerende_beskrivelse">3.13. Supplerende beskrivelse</a></li>
 </ul>
 </li>
-<li><a href="#_konformitetsklasser">4. Konformitetsklasser</a>
+<li><a href="#_konformitet">4. Konformitet</a>
 <ul class="sectlevel2">
-<li><a href="#_konformitetsklasse_fkb_x">4.1. Konformitetsklasse FKB X</a></li>
-<li><a href="#_konformitetsklasse_fkb_y">4.2. Konformitetsklasse FKB Y</a></li>
+<li><a href="#_konformitetsklasse_fkb_bane">4.1. Konformitetsklasse FKB-Bane</a></li>
+<li><a href="#_konformitetsklasse_fkb_bane2">4.2. Konformitetsklasse FKB-Bane2</a></li>
+<li><a href="#_kravklasse_fkb_bane">4.3. Kravklasse FKB-Bane</a></li>
 </ul>
 </li>
 <li><a href="#_spesifikasjonsomfang">5. Spesifikasjonsomfang</a>
@@ -667,7 +668,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_gml_realisering">Vedlegg A: GML-realisering</a></li>
 <li><a href="#_sosi_format_realisering">Vedlegg B: SOSI-format-realisering</a></li>
-<li><a href="#_abstract_test_suite_normativ">Vedlegg C: Abstract test suite (normativ)</a></li>
+<li><a href="#_abstract_test_suite_normativ">Vedlegg C: Abstract test suite (normativ)</a>
+<ul class="sectlevel2">
+<li><a href="#_konformitetstester_av_kravklasse_kravfkb_bane">C.1. Konformitetstester av kravklasse …/krav/FKB-Bane.</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -723,6 +728,16 @@ Dette dokumentet kan også lastes ned <a href="https://sosi.geonorge.no/produkts
 </div>
 <div class="paragraph">
 <p>Denne produktspesifikasjonen er utarbeidet iht. SOSI produktspesifikasjoner – Krav og godkjenning 5.0 <a href="#SOSI-KRAV">[SOSI-KRAV]</a>. UML-modellen som ligger til grunn for innhold i diagrammene og dokumentasjon i kap. 5, følger reglene i SOSI Regler for UML-modellering, versjon 5.1 <a href="#SOSI-UML">[SOSI-UML]</a>. <a href="http://sosi.geonorge.no/veiledere/UML">Denne veilederen</a> gir hjelp til å lese UML-diagrammene.</p>
+</div>
+<div class="paragraph">
+<p>Dette dokumentet inneholder URIer for å identifisere elementer av en modulær spesifikasjon (krav, anbefalinger, kravklasser, konformitetsklasser, tester). URIene er sammensatt av et navnerom og en lokal ID.
+Navnerommet for dette dokumentet er <a href="https://sosi.geonorge.no/FKB-Bane/5.0.1/" class="bare">https://sosi.geonorge.no/FKB-Bane/5.0.1/</a>.</p>
+</div>
+<div class="paragraph">
+<p>Elementene i den lokale IDen er beskrevet på &lt;ekstern referanse&gt; se også <a href="https://committee.iso.org/sites/tc211/home/resolutions/isotc-211-good-practices/--structure-of-uris-in-isotc-211.html" class="bare">https://committee.iso.org/sites/tc211/home/resolutions/isotc-211-good-practices/--structure-of-uris-in-isotc-211.html</a></p>
+</div>
+<div class="paragraph">
+<p>Navnerommet gjentas ikke i tilknytting til lokale IDene angitt i dette dokumentet. Disse innledes med ../ som erstatter navnerommet.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1237,15 +1252,15 @@ Ikke angitt</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_konformitetsklasser">4. Konformitetsklasser</h2>
+<h2 id="_konformitet">4. Konformitet</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>I denne spesifikasjonen er 2 konformitetsklasser definert (se 4.1 og 4.2). For å teste om implementasjoner er konforme med en eller flere av konformitetsklassene er det tester definert. Disse er tilgjengelige i abstract test suite i <a href="#_abstract_test_suite">[_abstract_test_suite]</a>.</p>
+<p>I denne spesifikasjonen er to konformitetsklasser definert, FKB-Bane og FKB-Bane2 (se 4.1 og 4.2). For å teste om implementasjoner er konforme med en eller flere av konformitetsklassene er det tester definert. Disse er tilgjengelige i abstract test suite i <a href="#_abstract_test_suite">[_abstract_test_suite]</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_konformitetsklasse_fkb_x">4.1. Konformitetsklasse FKB X</h3>
-<table id="tab-Koordinatbasert-referansesystem_Pre" class="tableblock frame-all grid-all stretch">
-<caption class="title">Tabell 1. Konformitetsklasse FKB X.</caption>
+<h3 id="_konformitetsklasse_fkb_bane">4.1. Konformitetsklasse FKB-Bane</h3>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Tabell 1. Konformitetsklasse FKB-Bane.</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -1253,50 +1268,92 @@ Ikke angitt</p>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Konformitetsklasse</th>
-<th class="tableblock halign-left valign-top">&#8230;&#8203;/konf/FKB X</th>
+<th class="tableblock halign-left valign-top">&#8230;&#8203;/konf/FKB-Bane</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Standardiseringsmål</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Begreper og modeller for koordiantbaserte referansesystem</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Avhengighet</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://sosi.geonorge.no/Standarder/FKB_generell_del/5.0" class="bare">https://sosi.geonorge.no/Standarder/FKB_generell_del/5.0</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Kravklasse</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Koordinatbasert referansesystem i tabell <a href="#tab-Koordinatbasert-referansesystem">[tab-Koordinatbasert-referansesystem]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;/krav/FKB-Bane <a href="#_kravklasse_FKB-Bane">[_kravklasse_FKB-Bane]</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tester</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Alle tester i <a href="#tab-Test-Koordinatbasrt-referansesystem">[tab-Test-Koordinatbasrt-referansesystem]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alle tester i <a href="#xxx">[xxx]</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_konformitetsklasse_fkb_y">4.2. Konformitetsklasse FKB Y</h3>
+<h3 id="_konformitetsklasse_fkb_bane2">4.2. Konformitetsklasse FKB-Bane2</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Tabell 2. Tittel på tabell</caption>
+<caption class="title">Tabell 2. Konformitetsklasse FKB-Bane2.</caption>
 <colgroup>
 <col style="width: 20%;">
-<col style="width: 40%;">
-<col style="width: 40%;">
+<col style="width: 80%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Dato</th>
-<th class="tableblock halign-left valign-top">Oppgave</th>
-<th class="tableblock halign-left valign-top">Utført av</th>
+<th class="tableblock halign-left valign-top">Konformitetsklasse</th>
+<th class="tableblock halign-left valign-top">&#8230;&#8203;/konf/FKB-Bane2</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">23. januar 2023</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Oppdatere standardmal</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Åsmund</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avhengighet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;/konf/FKB-Bane</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kravklasse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xxx <a href="#xxx">[xxx]</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tester</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Alle tester i <a href="#xxx">[xxx]</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_kravklasse_fkb_bane">4.3. Kravklasse FKB-Bane</h3>
+<table id="kravklasse_FKB-Bane" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Kravklasse</th>
+<th class="tableblock halign-left valign-top">&#8230;&#8203;/krav/FKB-Bane</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standardiseringsmål</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dataprodukt FKB-Bane</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avhengighet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://sosi.geonorge.no/Standarder/FKB_generell_del/5.0" class="bare">https://sosi.geonorge.no/Standarder/FKB_generell_del/5.0</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Krav</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">krav/FKB-Bane/innholdOgStruktur</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Krav</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">krav/FKB-Bane/romligeReferansesystemer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Krav</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">krav/FKB-Bane/temporaltReferansesystem</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Krav</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">krav/FKB-Bane/datakvalitet</p></td>
 </tr>
 </tbody>
 </table>
@@ -1368,7 +1425,7 @@ Ikke angitt</p>
 <h2 id="_innhold_og_struktur">6. Innhold og struktur</h2>
 <div class="sectionbody">
 <div id="krav-nøkkelord-skal" class="exampleblock">
-<div class="title">krav/innholdOgStruktur</div>
+<div class="title">krav/FKB-Bane/innholdOgStruktur</div>
 <div class="content">
 <div class="paragraph">
 <p>Innholdet i dataproduktet skal være i henhold til definerte elementer i UML-diagrammene og tabelldokumentasjon i kap. 6.</p>
@@ -2708,6 +2765,22 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</p>
 <div class="sect1">
 <h2 id="_referansesystem">7. Referansesystem</h2>
 <div class="sectionbody">
+<div class="exampleblock">
+<div class="title">krav/FKB-Bane/romligeReferansesystemer</div>
+<div class="content">
+<div class="paragraph">
+<p>Stedfestet informasjon i dataproduktet skal være angitt i henhold til ett eller flere referansesystemer spesifisert i kap. 7.1, 7.2 eller 7.3.</p>
+</div>
+</div>
+</div>
+<div class="exampleblock">
+<div class="title">krav/FKB-Bane/temporaltReferansesystem</div>
+<div class="content">
+<div class="paragraph">
+<p>Temporal informasjon i dataproduktet skal være angitt i henhold til  referansesystemet spesifisert i kap. 7.4.</p>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>Referansesystemer for FKB 5.0 er også beskrevet i vedlegg B i <a href="https://sosi.geonorge.no/Standarder/FKB_generell_del/5.0">FKB generell del</a>.</p>
 </div>
@@ -2887,7 +2960,20 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</p>
 <p>FKB vil ofte også inneholde data fra andre datakilder, for eksempel data etablert gjennom kommunal/offentlig saksbehandling, innmelding fra publikum eller digitalisert fra ortofoto. Se kapittel 9 for en nærmere beskrivelse av datakilder ved vedlikehold av FKB-data.</p>
 </div>
 <div class="paragraph">
-<p>Prinsippet er at fullstendighet prioriteres foran nøyaktighet og FKB-data for et område vil derfor bestå av data med varierende grad av kvalitet. Alle data er kodet med datafangstdato og posisjonskvalitet slik at det er mulig å vurdere datakvaliteten til det enkelte dataobjekt. Det vil også være mulig å aggregere denne informasjonen som finnes på objektnivå opp til en beskrivelse av kvaliteten på datainnholdet i området som helhet. Det er imidlertid vanskelig å garantere datakvaliteten for FKB innenfor et område.</p>
+<p>Prinsippet er at fullstendighet prioriteres foran nøyaktighet og FKB-data for et område vil derfor bestå av data med varierende grad av kvalitet.</p>
+</div>
+<div id="krav-nøkkelord-skal" class="exampleblock">
+<div class="title">krav/FKB-Bane/datakvalitet</div>
+<div class="content">
+<div class="paragraph">
+<p>Alle data skal være kodet med datafangstdato og posisjonskvalitet slik at det er mulig å vurdere datakvaliteten til det enkelte dataobjekt.</p>
+</div>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Det vil også være mulig å aggregere denne informasjonen som finnes på objektnivå opp til en beskrivelse av kvaliteten på datainnholdet i området som helhet. Det er imidlertid vanskelig å garantere datakvaliteten for FKB innenfor et område.</pre>
+</div>
 </div>
 </div>
 </div>
@@ -3587,10 +3673,11 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</p>
 <h2 id="_abstract_test_suite_normativ">Vedlegg C: Abstract test suite (normativ)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>For å vurdere om konformitetsklassene som er definert i dette dokumentet (se <a href="#_konformitetsklasser">Konformitetsklasser</a>  tilfredsstiller de krav som er angitt i denne standarden henvises til testene nedenfor.</p>
+<p>For å vurdere om konformitetsklassene som er definert i dette dokumentet (se <a href="#_konformitetsklasser">[_konformitetsklasser]</a>)  tilfredsstiller de krav som er angitt i denne standarden henvises til testene nedenfor.</p>
 </div>
+<div class="sect2">
+<h3 id="_konformitetstester_av_kravklasse_kravfkb_bane">C.1. Konformitetstester av kravklasse …/krav/FKB-Bane.</h3>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Tabell 3. Konformitetstest av kravklasse klasse FKB X.</caption>
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 80%;">
@@ -3598,10 +3685,104 @@ Veg på bro, i tunnel, inne i et bygningsmessig anlegg, etc.</p>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Konformitetstest</th>
-<th class="tableblock halign-left valign-top">&#8230;&#8203;/konf/FKB X/innholdOgStruktur</th>
+<th class="tableblock halign-left valign-top">&#8230;&#8203;/konf/FKB-Bane/innholdOgStruktur</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Referanse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;/krav/FKB-Bane/innholdOgStruktur</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testmetode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abc</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testformål</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">def</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testtype</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Konformitetstest</th>
+<th class="tableblock halign-left valign-top">&#8230;&#8203;/konf/FKB-Bane/romligeReferansesystemer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Referanse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;/krav/FKB-Bane/romligeReferansesystemer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testmetode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abc</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testformål</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">def</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testtype</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Konformitetstest</th>
+<th class="tableblock halign-left valign-top">&#8230;&#8203;/konf/FKB-Bane/temporaltReferansesystem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Referanse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;/krav/FKB-Bane/temporaltReferansesystem</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testmetode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">abc</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testformål</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">def</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Testtype</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Basic</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Konformitetstest</th>
+<th class="tableblock halign-left valign-top">&#8230;&#8203;/konf/FKB-Bane/datakvalitet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Referanse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;/krav/FKB-Bane/datakvalitet</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Testmetode</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">abc</p></td>
@@ -3674,10 +3855,11 @@ av denne lisensen og ikke kan viderebrukes</p>
 </div>
 </div>
 </div>
+</div>
 <div id="footer">
 <div id="footer-text">
 Versjon 5.0.1<br>
-Last updated 2024-04-17 15:04:01 +0200
+Last updated 2024-04-18 08:54:36 +0200
 </div>
 </div>
 </body>
