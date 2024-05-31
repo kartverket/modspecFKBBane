@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON-LD Example</title>
-    <script type="application/ld+json">
+    <title>JSON-LD Graph Visualization</title>
+    <style>
+        .node circle {
+            fill: #ccc;
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+        .node text {
+            pointer-events: none;
+            font: 10px sans-serif;
+        }
+        .link {
+            fill: none;
+            stroke: #999;
+            stroke-opacity: 0.6;
+            stroke-width: 1.5px;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+    <h1>JSON-LD Graph Visualization</h1>
+    <p>This page visualizes JSON-LD content as a graph using D3.js.</p>
+    <div id="graph"></div>
+    <script type="application/ld+json" id="jsonld-content">
     {
       "@context": {
         "xmi": "http://schema.omg.org/spec/XMI/2.1",
@@ -160,9 +183,71 @@
     }
   }
     </script>
-</head>
-<body>
-    <h1>JSON-LD Example</h1>
-    <p>This page includes a JSON-LD script containing metadata details.</p>
-</body>
-</html>
+    <script>
+        const jsonldContent = document.getElementById('jsonld-content').textContent;
+        const jsonData = JSON.parse(jsonldContent);
+
+        const width = 960,
+              height = 600;
+
+        const svg = d3.select("#graph")
+                      .append("svg")
+                      .attr("width", width)
+                      .attr("height", height);
+
+        const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+        const simulation = d3.forceSimulation()
+                             .force("link", d3.forceLink().id(d => d.id))
+                             .force("charge", d3.forceManyBody().strength(-300))
+                             .force("center", d3.forceCenter(width / 2, height / 2));
+
+        // Convert JSON-LD to nodes and links for the graph
+        const nodes = [];
+        const links = [];
+
+        function processElement(element, parentId = null) {
+            const node = {
+                id: element["@id"] || element.name,
+                name: element.name || element["@type"]
+            };
+            nodes.push(node);
+
+            if (parentId) {
+                links.push({ source: parentId, target: node.id });
+            }
+
+            if (element.packagedElement) {
+                element.packagedElement.forEach(child => processElement(child, node.id));
+            }
+        }
+
+        processElement(jsonData);
+
+        const link = svg.append("g")
+                        .attr("class", "links")
+                        .selectAll("line")
+                        .data(links)
+                        .enter()
+                        .append("line")
+                        .attr("class", "link");
+
+        const node = svg.append("g")
+                        .attr("class", "nodes")
+                        .selectAll("g")
+                        .data(nodes)
+                        .enter()
+                        .append("g")
+                        .attr("class", "node");
+
+        node.append("circle")
+            .attr("r", 5)
+            .attr("fill", d => color(d.group));
+
+        node.append("title")
+            .text(d => d.name);
+
+        node.append("text")
+            .attr("x", 6)
+            .attr("y", 3)
+            .text
