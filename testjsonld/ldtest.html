@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-LD Example</title>
+    <script type="application/ld+json">
+    {
+      "@context": {
+        "xmi": "http://schema.omg.org/spec/XMI/2.1",
+        "uml": "http://schema.omg.org/spec/UML/2.1",
+        "gmd": "http://www.isotc211.org/2005/gmd",
+        "gco": "http://www.isotc211.org/2005/gco"
+      },
+      "@type": "uml:Model",
+      "name": "EA_Model",
+      "visibility": "public",
+      "packagedElement": [
+        {
+          "@type": "uml:Package",
+          "@id": "EAPK_5EE7F15E_27E2_4bf3_96F6_D8D4A20B9EED",
+          "name": "Eksempel",
+          "visibility": "public",
+          "packagedElement": [
+            {
+              "@type": "uml:Class",
+              "@id": "EAID_288CA0FC_B10D_435f_9B2D_38A32E75BD19",
+              "name": "Brukergrupper",
+              "visibility": "public"
+            },
+            {
+              "@type": "uml:Class",
+              "@id": "EAID_7400E5FC_C854_423d_A422_761B124A744B",
+              "name": "Elementer fra brukerbehov",
+              "visibility": "public"
+            },
+            {
+              "@type": "uml:Class",
+              "@id": "EAID_9D4FFD44_B963_480b_BF2B_D689EC4433EB",
+              "name": "Elementer fra verktøy (default)",
+              "visibility": "public"
+            },
+            {
+              "@type": "uml:Class",
+              "@id": "EAID_EA5F6B62_0043_434d_BA0D_FBF8E65D7A4A",
+              "name": "Verktøy",
+              "visibility": "public"
+            },
+            {
+              "@type": "uml:Class",
+              "@id": "EAID_1415B3A2_1C26_4a49_9836_15C119987593",
+              "name": "Elementer",
+              "visibility": "public"
+            },
+            {
+              "@type": "uml:Class",
+              "@id": "EAID_73E781FD_2E41_4915_975A_7C2046A56C0B",
+              "name": "Standarder",
+              "visibility": "public"
+            },
+            {
+              "@type": "uml:Class",
+              "@id": "EAID_F13A1FBF_6C45_4386_9EE3_5FC97EA7D7CF",
+              "name": "Lover, forskrifter, rammeverk",
+              "visibility": "public",
+              "packagedElement": [
+                {
+                  "@type": "gmd:MD_Metadata",
+                  "fileIdentifier": {
+                    "@type": "gco:CharacterString",
+                    "@value": "some-unique-identifier"
+                  },
+                  "language": {
+                    "@type": "gmd:LanguageCode",
+                    "@value": "eng"
+                  },
+                  "characterSet": {
+                    "@type": "gmd:MD_CharacterSetCode",
+                    "@value": "utf8"
+                  },
+                  "hierarchyLevel": {
+                    "@type": "gmd:MD_ScopeCode",
+                    "@value": "dataset"
+                  },
+                  "contact": {
+                    "@type": "gmd:CI_ResponsibleParty",
+                    "individualName": {
+                      "@type": "gco:CharacterString",
+                      "@value": "John Doe"
+                    },
+                    "organisationName": {
+                      "@type": "gco:CharacterString",
+                      "@value": "Example Organization"
+                    },
+                    "positionName": {
+                      "@type": "gco:CharacterString",
+                      "@value": "Metadata Manager"
+                    },
+                    "contactInfo": {
+                      "@type": "gmd:CI_Contact",
+                      "phone": {
+                        "@type": "gmd:CI_Telephone",
+                        "voice": {
+                          "@type": "gco:CharacterString",
+                          "@value": "+1-555-555-5555"
+                        },
+                        "facsimile": {
+                          "@type": "gco:CharacterString",
+                          "@value": "+1-555-555-5556"
+                        }
+                      },
+                      "address": {
+                        "@type": "gmd:CI_Address",
+                        "deliveryPoint": {
+                          "@type": "gco:CharacterString",
+                          "@value": "123 Main St"
+                        },
+                        "city": {
+                          "@type": "gco:CharacterString",
+                          "@value": "Anytown"
+                        },
+                        "postalCode": {
+                          "@type": "gco:CharacterString",
+                          "@value": "12345"
+                        },
+                        "country": {
+                          "@type": "gco:CharacterString",
+                          "@value": "USA"
+                        },
+                        "electronicMailAddress": {
+                          "@type": "gco:CharacterString",
+                          "@value": "john.doe@example.com"
+                        }
+                      }
+                    }
+                  },
+                  "dateStamp": {
+                    "@type": "gco:Date",
+                    "@value": "2023-05-31"
+                  },
+                  "metadataStandardName": {
+                    "@type": "gco:CharacterString",
+                    "@value": "ISO 19115"
+                  },
+                  "metadataStandardVersion": {
+                    "@type": "gco:CharacterString",
+                    "@value": "2003"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "documentation": {
+      "exporter": "Enterprise Architect",
+      "exporterVersion": "6.5",
+      "exporterID": "1628"
+    }
+  }
+    </script>
+</head>
+<body>
+    <h1>JSON-LD Example</h1>
+    <p>This page includes a JSON-LD script containing metadata details.</p>
+</body>
+</html>
